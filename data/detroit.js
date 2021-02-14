@@ -1,0 +1,63 @@
+// Data for Detroit Points of Interest
+
+let detroitRestaurants = [
+	{
+		name: 'Pupuseria Y Restaurante Salvadoreno',
+		position: [42.32495, -83.11628],
+		address: '3149 Livernois, Detroit, MI 48210',
+		image: 'Link to image',
+		cuisineType: 'Salvadoran',
+		specialty: 'Pupusas',
+		phone: '(313) 899-4020',
+	},
+	{
+		name: 'Mudgie\'s Deli and Bar',
+		position: [42.32923, -83.06178],
+		address: '1413 Brooklyn St, Detroit, MI 48226',
+		image: 'Link to image',
+		cuisineType: '',
+		specialty: 'Deli Sandwiches',
+		favDish: 'The Wreck',
+		phone: '(313) 961-2000',
+	},
+	{
+		name: 'Shangri-La',
+		position: [42.71168, -82.45753],
+		address: '4710 Cass Ave, Detroit, MI 48201',
+		image: 'Link to image',
+		cuisineType: 'Chinese',
+		specialty: 'Authentic Cantonese Cuisine',
+		favDish: '',
+		phone: '(313) 974-7669',
+	},
+	{
+		name: 'Rose\'s Fine Food',
+		position: [42.36423, -82.97710],
+		address: '10551 E Jefferson Ave, Detroit, MI 48214',
+		image: 'Link to image',
+		cuisineType: 'American',
+		specialty: 'Breakfast',
+		favDish: '',
+		phone: '(313) 822-2729',
+	},
+	{
+		name: 'Mabel Gray',
+		position: [42.46783, -83.10427],
+		address: '23825 John R Rd, Hazel Park, MI 48030',
+		image: 'Link to image',
+		cuisineType: '',
+		specialty: '',
+		favDish: '',
+		phone: '(248) 398-4300',
+	},
+	{
+		name: 'Loui\'s Pizza',
+		position: [42.46406, -83.08420],
+		address: '23141 Dequindre Rd, Hazel Park, MI 48030',
+		image: 'Link to image',
+		cuisineType: '',
+		specialty: 'Deep Dish Pizzas',
+		favDish: 'BBQ Chicken Deep Dish',
+		phone: '(248) 547-1711',
+	}
+];
