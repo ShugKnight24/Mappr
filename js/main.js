@@ -1,3 +1,260 @@
+'use strict';
+
+// Classes
+class Location {
+	constructor(
+		name,
+		position,
+		address,
+		image
+	){
+		this.name = name;
+		this.position = position;
+		this.address = address;
+		this.image = image;
+	}
+
+	buildModal(){
+		L.marker(this.position)
+		.bindPopup(
+			`
+				<h2>${ this.name }</h2>
+				<p><b>Address:</b> ${ this.address }</p>
+				<p><b>Address:</b> ${ this.address }</p>
+			`
+		)
+		.openPopup()
+		.addTo(myMap);
+	}
+}
+
+class CoffeeShop extends Location {
+	constructor(
+		name,
+		position,
+		address,
+		image,
+		specialty,
+		hours
+	){
+		super(
+			name,
+			position,
+			address,
+			image
+		);
+		this.type = 'Coffee Shop';
+		this.specialty = specialty;
+		this.hours = hours;
+	}
+}
+
+class College extends Location {
+	constructor(
+		name,
+		position,
+		address,
+		image,
+		mascot,
+		enrollment
+	){
+		super(
+			name,
+			position,
+			address,
+			image
+		);
+		this.type = 'College';
+		this.mascot = mascot;
+		this.enrollment = enrollment;
+	}
+}
+
+class Museum extends Location {
+	constructor(
+		name,
+		position,
+		address,
+		image,
+		hours
+	){
+		super(
+			name,
+			position,
+			address,
+			image
+		);
+		this.type = 'Museum';
+		this.hours = hours;
+	}
+}
+
+class Park extends Location {
+	constructor(
+		name,
+		position,
+		address,
+		image,
+		hours
+	){
+		super(
+			name,
+			position,
+			address,
+			image
+		);
+		this.type = 'Park';
+		this.hours = hours;
+	}
+}
+
+
+class Restaurant extends Location {
+	constructor(
+		name,
+		position,
+		address,
+		image,
+		cuisineType,
+		specialty,
+		favDish,
+		delivers,
+		hours,
+		phone,
+		review
+	){
+		super(
+			name,
+			position,
+			address,
+			image
+		);
+		this.type = 'Restaurant';
+		this.cuisineType = cuisineType;
+		this.specialty = specialty;
+		this.favDish = favDish;
+		this.delivers = delivers;
+		this.hours = hours;
+		this.phone = phone;
+		this.review = review;
+	}
+
+	buildModal(){
+		L.marker(this.position)
+		.bindPopup(
+		`
+			<h2>${ this.name }</h2>
+			<p><b>Type:</b> ${ this.type }</p>
+			<p><b>Address:</b> ${ this.address }</p>
+			<p><b>Cuisine:</b> ${ this.cuisineType }</p>
+			<p><b>Specialty:</b> ${ this.specialty }</p>
+		`
+		)
+		.openPopup()
+		.addTo(myMap)
+	}
+
+	checkIfOpen(){
+		let currentTime = new Date().getTime();
+
+		console.log(currentTime);
+	}
+}
+
+class CollegeTeam extends Location {
+	constructor(
+		name,
+		position,
+		address,
+		image,
+		sport,
+		conference,
+		stadiumName,
+		mascot
+	){
+		super(
+			name,
+			position,
+			address,
+			image
+		);
+		this.type = 'College Team';
+		this.sport = sport;
+		this.league = 'NCAA';
+		this.conference = conference;
+		this.stadiumName = stadiumName;
+		this.mascot = mascot;
+	}
+
+	buildModal(){
+		L.marker(this.position)
+		.bindPopup(
+		`
+			<h2>${ this.stadiumName }</h2>
+			<h4>${ this.name } ${ this.mascot }<h4>
+			<p><b>Sport:</b> ${ this.sport }</p>
+			<p><b>League:</b> ${ this.league }</p>
+			<p><b>Conference:</b> ${ this.conference }</p>
+			<p><b>Type:</b> ${ this.type }</p>
+			<p><b>Address:</b> ${ this.address }</p>
+		`
+		)
+		.openPopup()
+		.addTo(myMap)
+	}
+}
+
+class SportsTeam extends CollegeTeam {
+	constructor(
+		name,
+		position,
+		address,
+		image,
+		sport,
+		league,
+		stadiumName,
+		currentStadium,
+		owner
+	){
+		super(
+			name,
+			position,
+			address,
+			image,
+			sport,
+			league,
+			stadiumName
+		);
+		this.type = 'Sports Team';
+		this.sport = sport;
+		this.league = league;
+		this.stadiumName = stadiumName;
+		this.currentStadium = currentStadium ? 'Current Stadium' : 'Former Stadium';
+		this.owner = owner;
+	}
+
+	buildModal(){
+		L.marker(this.position)
+		.bindPopup(
+		`
+			<h2>${ this.stadiumName }</h2>
+			<h4>${ this.name }<h4>
+			<p><b>Sport:</b> ${ this.sport }</p>
+			<p><b>League:</b> ${ this.league }</p>
+			<p><b>Current Stadium:</b> ${ this.currentStadium }</p>
+			<p><b>Type:</b> ${ this.type }</p>
+			<p><b>Address:</b> ${ this.address }</p>
+			<p><b>Owner:</b> ${ this.owner }</p>
+		`
+		)
+		.openPopup()
+		.addTo(myMap)
+	}
+}
+
+// Built off Tania Rascia's code.
+// https://codepen.io/taniarascia/pen/brRaVE
+
 // Map Setup
 const myMap = L.map('map');
 
@@ -37,53 +294,10 @@ function setMapTitle(cityName){
 	document.querySelector('.map-title').innerHTML = `Map of ${ cityName }`;
 }
 
-class Location {
-	constructor(
-		name,
-		position,
-		address,
-		image
-	){
-		this.name = name;
-		this.position = position;
-		this.address = address;
-		this.image = image;
-	}
-}
+let restaurants = [];
 
-class Restaurant extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		cuisineType,
-		specialty,
-		favDish,
-		delivers,
-		hours,
-		phone,
-		review
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
-		this.type = 'Restaurant';
-		this.cuisineType = cuisineType;
-		this.specialty = specialty;
-		this.favDish = favDish;
-		this.delivers = delivers;
-		this.hours = hours;
-		this.phone = phone;
-		this.review = review;
-	}
-}
-
-detroitRestaurants.map(restaurant => {
-	let res = new Restaurant(
+detroitRestaurants.map((restaurant, index) => {
+	restaurants[index] = new Restaurant(
 		restaurant.name,
 		restaurant.position,
 		restaurant.address,
@@ -97,44 +311,44 @@ detroitRestaurants.map(restaurant => {
 		restaurant.review
 	);
 
-	L.marker(res.position)
-	.bindPopup(
-	`
-		<h2>${ res.name }</h2>
-		<p><b>Type:</b> ${ res.type }</p>
-		<p><b>Address:</b> ${ res.address }</p>
-		<p><b>Cuisine:</b> ${ res.cuisineType }</p>
-		<p><b>Specialty:</b> ${ res.specialty }</p>
-	`
-	)
-	.openPopup()
-	.addTo(myMap)
+	restaurants[index].buildModal();
 })
 
-class CoffeeShop extends Location {
-	constructor(){
-		super();
-		this.type = 'Coffee Shop';
-		this.specialty = specialty;
-		this.hours = hours;
-	}
-}
+let sportsTeams = [];
 
-class Park extends Location {
-	constructor(){
-		super();
-		this.type = 'Park';
-		this.hours = hours;
-	}
-}
+detroitSportsTeams.map((team, index) => {
+	sportsTeams[index] = new SportsTeam(
+		team.name,
+		team.position,
+		team.address,
+		team.image,
+		team.sport,
+		team.league,
+		team.stadiumName,
+		team.currentStadium,
+		team.owner
+	);
 
-class Museum extends Location {
-	constructor(){
-		super();
-		this.type = 'Museum';
-		this.hours = hours;
-	}
-}
+	sportsTeams[index].buildModal();
+})
+
+let collegeTeams = [];
+
+michiganCollegeTeams.map((team, index) => {
+
+	collegeTeams[index] = new CollegeTeam(
+		team.name,
+		team.position,
+		team.address,
+		team.image,
+		team.sport,
+		team.conference,
+		team.stadiumName,
+		team.mascot
+	);
+
+	collegeTeams[index].buildModal();
+})
 
 // 2. Can you "subclass" the Location classes as Restaurants, Coffeshops, Parks, or other interesting locations?
 // 3. Can you use a .filter() method to get only some of the Locations from the array at a time?
