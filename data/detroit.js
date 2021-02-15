@@ -152,3 +152,66 @@ let detroitSportsTeams = [
 		owner: 'Mike Ilitch'
 	}
 ]
+
+let michiganCollegeTeams = [
+	{
+		name: 'University of Michigan',
+		position: [42.26505, -83.74889],
+		address: '333 E Stadium Blvd, Ann Arbor, MI 48109',
+		image: 'Link to image',
+		sport: 'Basketball',
+		conference: 'Big Ten',
+		stadiumName: 'Crisler Center',
+		mascot: 'Wolverines'
+	},
+	{
+		name: 'University of Michigan',
+		position: [42.26584, -83.75088],
+		address: '1201 S Main St, Ann Arbor, MI 48104',
+		image: 'Link to image',
+		sport: 'Football',
+		conference: 'Big Ten',
+		stadiumName: 'Michigan Stadium - The Big House',
+		mascot: 'Wolverines'
+	},
+	{
+		name: 'Michigan State University',
+		position: [42.72818, -84.48487],
+		address: '534 Birch Rd, East Lansing, MI 48824',
+		image: 'Link to image',
+		sport: 'Basketball',
+		conference: 'Big Ten',
+		stadiumName: 'Breslin Center',
+		mascot: 'Spartans'
+	},
+	{
+		name: 'Michigan State University',
+		position: [42.72818, -84.48487],
+		address: '325 W Shaw Ln, East Lansing, MI 48824',
+		image: 'Link to image',
+		sport: 'Football',
+		conference: 'Big Ten',
+		stadiumName: 'Spartan Stadium',
+		mascot: 'Spartans'
+	},
+	{
+		name: 'Wayne State University',
+		position: [42.35500, -83.07835],
+		address: '5101 John C Lodge Fwy, Detroit, MI 48202',
+		image: 'Link to image',
+		sport: 'Basketball',
+		conference: 'GLIAC',
+		stadiumName: 'Matthaei Arena',
+		mascot: 'Warriors'
+	},
+	{
+		name: 'Wayne State University',
+		position: [42.35500, -83.07835],
+		address: '42 W Warren Ave, Detroit, MI 48208',
+		image: 'Link to image',
+		sport: 'Football',
+		conference: 'GLIAC',
+		stadiumName: 'Adams Field',
+		mascot: 'Warriors'
+	}
+]
