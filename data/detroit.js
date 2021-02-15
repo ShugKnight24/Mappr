@@ -6,9 +6,50 @@ let detroitRestaurants = [
 		position: [42.32495, -83.11628],
 		address: '3149 Livernois, Detroit, MI 48210',
 		image: 'Link to image',
-		cuisineType: 'Salvadoran',
+		cuisineType: 'El Salvadoran',
 		specialty: 'Pupusas',
+		favDish: '',
+		delivers: false,
+		doorDashLink: false,
+		grubHubLink: false,
+		hours: {
+			0: {
+				open: [10,30,00],
+				close: [20,00,00]
+				}
+			,
+			1: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			2: {
+				open: [10,30,00],
+				close: [20,00,00]
+				}
+			,
+			3: {
+				open: [10,30,00],
+				close: [20,00,00]
+				}
+			,
+			4: {
+				open: [10,30,00],
+				close: [20,00,00]
+				}
+			,
+			5: {
+				open: [10,30,00],
+				close: [20,00,00]
+				}
+			,
+			6: {
+				open: [10,30,00],
+				close: [20,00,00]
+				}
+		},
 		phone: '(313) 899-4020',
+		website: 'https://pupuseriayrestaurantesalvadoreno.negocio.site/'
 	},
 	{
 		name: 'Mudgie\'s Deli and Bar',
@@ -18,17 +59,62 @@ let detroitRestaurants = [
 		cuisineType: '',
 		specialty: 'Deli Sandwiches',
 		favDish: 'The Wreck',
+		delivers: false,
+		doorDashLink: false,
+		grubHubLink: false,
+		hours: 'Temporarily Closed',
 		phone: '(313) 961-2000',
+		website: 'http://www.mudgiesdeli.com/wp/'
 	},
 	{
-		name: 'Shangri-La',
-		position: [42.71168, -82.45753],
+		name: 'Midtown Shangri-La',
+		position: [42.35410, -83.06748],
 		address: '4710 Cass Ave, Detroit, MI 48201',
 		image: 'Link to image',
 		cuisineType: 'Chinese',
 		specialty: 'Authentic Cantonese Cuisine',
 		favDish: '',
+		delivers: true,
+		doorDashLink: 'https://www.doordash.com/store/midtown-shangri-la-detroit-228544/en-US',
+		grubHubLink: 'https://www.grubhub.com/restaurant/midtown-shangri-la-4710-cass-ave-detroit/1967525',
+		hours: {
+			0: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			1: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			2: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			3: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			4: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			5: {
+				open: [11,00,00],
+				close: [23,00,00]
+				}
+			,
+			6: {
+				open: [11,00,00],
+				close: [23,00,00]
+				}
+		},
 		phone: '(313) 974-7669',
+		website: 'http://www.midtownshangri-la.com/'
 	},
 	{
 		name: 'Rose\'s Fine Food',
@@ -38,7 +124,47 @@ let detroitRestaurants = [
 		cuisineType: 'American',
 		specialty: 'Breakfast',
 		favDish: '',
+		delivers: false,
+		doorDashLink: false,
+		grubHubLink: false,
+		hours: {
+			0: {
+				open: [11,00,00],
+				close: [15,00,00]
+				}
+			,
+			1: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			2: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			3: {
+				open: [11,00,00],
+				close: [18,00,00]
+				}
+			,
+			4: {
+				open: [11,00,00],
+				close: [18,00,00]
+				}
+			,
+			5: {
+				open: [11,00,00],
+				close: [18,00,00]
+				}
+			,
+			6: {
+				open: [11,00,00],
+				close: [15,00,00]
+				}
+		},
 		phone: '(313) 822-2729',
+		website: 'https://www.rosesfinefood.com/'
 	},
 	{
 		name: 'Mabel Gray',
@@ -48,7 +174,47 @@ let detroitRestaurants = [
 		cuisineType: '',
 		specialty: '',
 		favDish: '',
+		delivers: false,
+		doorDashLink: false,
+		grubHubLink: false,
+		hours: {
+			0: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			1: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			2: {
+				open: [17,00,00],
+				close: [22,00,00]
+				}
+			,
+			3: {
+				open: [17,00,00],
+				close: [22,00,00]
+				}
+			,
+			4: {
+				open: [17,00,00],
+				close: [22,00,00]
+				}
+			,
+			5: {
+				open: [17,00,00],
+				close: [23,00,00]
+				}
+			,
+			6: {
+				open: [16,00,00],
+				close: [23,00,00]
+				}
+		},
 		phone: '(248) 398-4300',
+		website: 'http://mabelgraykitchen.com/'
 	},
 	{
 		name: 'Loui\'s Pizza',
@@ -57,8 +223,46 @@ let detroitRestaurants = [
 		image: 'Link to image',
 		cuisineType: '',
 		specialty: 'Deep Dish Pizzas',
-		favDish: 'BBQ Chicken Deep Dish',
+		favDish: 'Meat Lovers Deep Dish',
+		delivers: true,
+		hours: {
+			0: {
+				open: [12,00,00],
+				close: [22,00,00]
+				}
+			,
+			1: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			2: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			3: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			4: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			5: {
+				open: [12,00,00],
+				close: [22,00,00]
+				}
+			,
+			6: {
+				open: [12,00,00],
+				close: [22,00,00]
+				}
+		},
 		phone: '(248) 547-1711',
+		website: false
 	}
 ];
 
