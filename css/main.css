@@ -115,3 +115,37 @@
 #map.leaflet-container a.leaflet-popup-close-button:hover {
 	color: #DC3545;
 }
+
+.doordash-link {
+	padding-top: 10px;
+}
+
+.doordash-link,
+.grubhub-link {
+	display: block;
+	margin: 0 auto;
+	text-decoration: none;
+	width: 100%;
+	height: 100%;
+	max-width: 200px;
+	margin-bottom: 10px;
+}
+
+.doordash-link .doordash-logo,
+.doordash-link .doordash-text {
+	display: inline-block;
+}
+
+.doordash-link:hover,
+.grubhub-link:hover {
+	cursor: pointer;
+}
+
+.doordash-link:hover .doordash-logo,
+.doordash-link:hover .doordash-text {
+	fill: #E02500;
+}
+
+.grubhub-link:hover .grubhub-logo {
+	fill: #F51423;
+}
