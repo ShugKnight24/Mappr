@@ -122,6 +122,7 @@ class Restaurant extends Location {
 		hours,
 		phone,
 		review
+		website
 	){
 		super(
 			name,
@@ -137,13 +138,25 @@ class Restaurant extends Location {
 		this.hours = hours;
 		this.phone = phone;
 		this.review = review;
+		this.website = website;
 	}
 
 	buildModal(){
 		L.marker(this.position)
 		.bindPopup(
 		`
-			<h2>${ this.name }</h2>
+			${
+				this.website
+				?
+				`<a href=${ this.website }
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					<h2>${ this.name }</h2>
+				</a>`
+				:
+				`<h2>${ this.name }</h2>`
+			}
 			<p><b>Type:</b> ${ this.type }</p>
 			<p><b>Address:</b> ${ this.address }</p>
 			<p><b>Cuisine:</b> ${ this.cuisineType }</p>
@@ -309,6 +322,7 @@ detroitRestaurants.map((restaurant, index) => {
 		restaurant.hours,
 		restaurant.phone,
 		restaurant.review
+		restaurant.website
 	);
 
 	restaurants[index].buildModal();
