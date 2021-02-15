@@ -61,3 +61,94 @@ let detroitRestaurants = [
 		phone: '(248) 547-1711',
 	}
 ];
+
+let detroitSportsTeams = [
+	{
+		name: 'Detroit Lions',
+		position: [42.34001, -83.04779],
+		address: '2000 Brush St, Detroit, MI 48226',
+		image: 'Link to image',
+		sport: 'Football',
+		league: 'NFL',
+		stadiumName: 'Ford Field',
+		currentStadium: true,
+		owner: 'Sheila Ford Hamp'
+	},
+	{
+		name: 'Detroit Lions',
+		position: [42.64603, -83.25646],
+		address: '1200 Featherstone Rd, Pontiac, MI 48342',
+		image: 'Link to image',
+		sport: 'Football',
+		league: 'NFL',
+		stadiumName: 'The Silverdome',
+		currentStadium: false,
+		owner: 'William Clay Ford'
+	},
+	{
+		name: 'Detroit Pistons',
+		position: [42.34110, -83.0574],
+		address: '2645 Woodward Ave, Detroit, MI 48201',
+		image: 'Link to image',
+		sport: 'Basketball',
+		league: 'NBA',
+		stadiumName: 'Little Caesars Arena',
+		currentStadium: true,
+		owner: 'Tom Gores'
+	},
+	{
+		name: 'Detroit Pistons',
+		position: [42.69852, -83.24474],
+		address: '6 Championship Dr, Auburn Hills, MI 48326',
+		image: 'Link to image',
+		sport: 'Basketball',
+		league: 'NBA',
+		stadiumName: 'The Palace of Auburn Hills',
+		currentStadium: false,
+		owner: 'Bill Davidson'
+	},
+	{
+		name: 'Detroit Red Wings',
+		position: [42.34110, -83.0574],
+		address: '2645 Woodward Ave, Detroit, MI 48201',
+		image: 'Link to image',
+		sport: 'Hockey',
+		league: 'NHL',
+		stadiumName: 'Little Caesars Arena',
+		currentStadium: true,
+		owner: 'Ilitch Holdings'
+	},
+	{
+		name: 'Detroit Red Wings',
+		position: [42.32523, -83.05485],
+		address: '19 Steve Yzerman Drive, Detroit, MI 48226',
+		image: 'Link to image',
+		sport: 'Hockey',
+		league: 'NHL',
+		stadiumName: 'Joe Louis Arena',
+		currentStadium: false,
+		owner: 'Mike Ilitch'
+	},
+	{
+		name: 'Detroit Tigers',
+		position: [42.34110, -83.0574],
+		address: '2645 Woodward Ave, Detroit, MI 48201',
+		image: 'Link to image',
+		sport: 'Baseball',
+		league: 'MLB',
+		stadiumName: 'Comerica Park',
+		currentStadium: true,
+		owner: 'Ilitch Holdings'
+	},
+	{
+		name: 'Detroit Tigers',
+		position: [42.34110, -83.0574],
+		address: '1680 Michigan Ave, Detroit, MI 48216',
+		image: 'Link to image',
+		sport: 'Baseball',
+		league: 'MLB',
+		stadiumName: 'Tiger Stadium',
+		currentStadium: false,
+		owner: 'Mike Ilitch'
+	}
+]
