@@ -190,6 +190,18 @@ class Restaurant extends Location {
 			<p><b>Cuisine:</b> ${ this.cuisineType }</p>
 			<p><b>Specialty:</b> ${ this.specialty }</p>
 			${
+				this.phone
+				?
+				`<p><b>Phone #:</b>
+					<a href=tel:${ this.phone }
+					>
+					${ this.phone }
+					</a>
+				</p>`
+				:
+				``
+			}
+			${
 				this.delivers
 				?
 				`<p><b>Delivers:</b> ${ this.delivers }
