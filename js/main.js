@@ -559,6 +559,27 @@ function removeFilteredActive(){
 		filter.classList.remove('active');
 	});
 }
+
+// Ensure filter sub nav appears properly
+const actions = document.querySelector('.actions'),
+filterList = document.querySelector('.filter-list');
+
+actions.addEventListener('mouseenter', addActive);
+
+function addActive(){
+	setTimeout(function() {
+		filterList.classList.add('active');
+	}, 250);
+}
+
+actions.addEventListener('mouseleave', removeActive);
+
+function removeActive(){
+	setTimeout(function() {
+	  filterList.classList.remove('active');
+	}, 250);
+}
+
 // 2. Can you "subclass" the Location classes as Restaurants, Coffeshops, Parks, or other interesting locations?
 // 3. Can you use a .filter() method to get only some of the Locations from the array at a time?
 
