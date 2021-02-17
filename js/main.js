@@ -427,6 +427,20 @@ function setMapTitle(cityName){
 	document.querySelector('.map-title').innerHTML = `Map of ${ cityName }`;
 }
 
+let locations = [];
+
+michiganLocations.map((location, index) => {
+	locations[index] = new Location(
+		location.name,
+		location.position,
+		location.address,
+		location.image,
+		location.type
+	);
+
+	locations[index].buildModal();
+});
+
 let restaurants = [];
 
 detroitRestaurants.map((restaurant, index) => {
@@ -485,6 +499,22 @@ michiganCollegeTeams.map((team, index) => {
 
 	collegeTeams[index].buildModal();
 })
+let coffeeShops = [];
+
+detroitCoffee.map((coffee, index) => {
+
+	coffeeShops[index] = new CoffeeShop(
+		coffee.name,
+		coffee.position,
+		coffee.address,
+		coffee.image,
+		coffee.hours,
+		coffee.phone,
+		coffee.website,
+	);
+
+	coffeeShops[index].buildModal();
+});
 
 // 2. Can you "subclass" the Location classes as Restaurants, Coffeshops, Parks, or other interesting locations?
 // 3. Can you use a .filter() method to get only some of the Locations from the array at a time?
