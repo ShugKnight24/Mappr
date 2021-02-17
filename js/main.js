@@ -31,7 +31,7 @@ class Location {
 			`
 		)
 		.openPopup()
-		.addTo(myMap);
+		.addTo(markers);
 	}
 }
 
@@ -91,7 +91,7 @@ class CoffeeShop extends Location {
 		`
 		)
 		.openPopup()
-		.addTo(myMap)
+		.addTo(markers)
 	}
 }
 
@@ -169,7 +169,7 @@ class Restaurant extends Location {
 		grubHubLink,
 		hours,
 		phone,
-		review
+		// review,
 		website
 	){
 		super(
@@ -187,7 +187,7 @@ class Restaurant extends Location {
 		this.grubHubLink = grubHubLink;
 		this.hours = hours;
 		this.phone = phone;
-		this.review = review;
+		// this.review = review;
 		this.website = website;
 	}
 
@@ -259,7 +259,7 @@ class Restaurant extends Location {
 		`
 		)
 		.openPopup()
-		.addTo(myMap)
+		.addTo(markers)
 	}
 
 	checkIfOpen(){
@@ -308,7 +308,7 @@ class CollegeTeam extends Location {
 		`
 		)
 		.openPopup()
-		.addTo(myMap)
+		.addTo(markers)
 	}
 }
 
@@ -356,7 +356,7 @@ class SportsTeam extends CollegeTeam {
 		`
 		)
 		.openPopup()
-		.addTo(myMap)
+		.addTo(markers)
 	}
 }
 
@@ -375,6 +375,7 @@ const myBasemap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
 // Add basemap to map id
 myBasemap.addTo(myMap);
 
+let markers = L.layerGroup().addTo(myMap);
 // Add custom Icons for different location types
 // https://leafletjs.com/examples/custom-icons/
 
@@ -427,6 +428,8 @@ function setMapTitle(cityName){
 	document.querySelector('.map-title').innerHTML = `Map of ${ cityName }`;
 }
 
+let allLocations = [];
+
 let locations = [];
 
 michiganLocations.map((location, index) => {
@@ -439,11 +442,15 @@ michiganLocations.map((location, index) => {
 	);
 
 	locations[index].buildModal();
+
+	allLocations.push(locations[index]);
 });
+
 
 let restaurants = [];
 
 detroitRestaurants.map((restaurant, index) => {
+
 	restaurants[index] = new Restaurant(
 		restaurant.name,
 		restaurant.position,
@@ -457,12 +464,13 @@ detroitRestaurants.map((restaurant, index) => {
 		restaurant.grubHubLink,
 		restaurant.hours,
 		restaurant.phone,
-		restaurant.review
 		restaurant.website
 	);
 
 	restaurants[index].buildModal();
-})
+
+	allLocations.push(restaurants[index]);
+});
 
 let sportsTeams = [];
 
@@ -480,7 +488,8 @@ detroitSportsTeams.map((team, index) => {
 	);
 
 	sportsTeams[index].buildModal();
-})
+	allLocations.push(sportsTeams[index]);
+});
 
 let collegeTeams = [];
 
@@ -498,7 +507,9 @@ michiganCollegeTeams.map((team, index) => {
 	);
 
 	collegeTeams[index].buildModal();
-})
+	allLocations.push(collegeTeams[index]);
+});
+
 let coffeeShops = [];
 
 detroitCoffee.map((coffee, index) => {
@@ -514,7 +525,60 @@ detroitCoffee.map((coffee, index) => {
 	);
 
 	coffeeShops[index].buildModal();
+	allLocations.push(coffeeShops[index]);
 });
+
+const filters = document.querySelectorAll('.filter');
+
+filters.forEach(function(filter){
+	filter.addEventListener('click', setFilter);
+});
+
+function setFilter(){
+	let filteredType = this.getAttribute('data-filter');
+
+	removeFilteredActive();
+
+	this.classList.add('active');
+
+	markers.clearLayers();
+
+	allLocations.filter(function(item){
+		if (item.type === 'College Team'){
+			item.type = 'Sports Team'
+		}
+
+		if (item.type === filteredType){
+			item.buildModal();
+		}
+	});
+}
+
+function removeFilteredActive(){
+	filters.forEach(function(filter){
+		filter.classList.remove('active');
+	});
+}
+
+// Ensure filter sub nav appears properly
+const actions = document.querySelector('.actions'),
+filterList = document.querySelector('.filter-list');
+
+actions.addEventListener('mouseenter', addActive);
+
+function addActive(){
+	setTimeout(function() {
+		filterList.classList.add('active');
+	}, 250);
+}
+
+actions.addEventListener('mouseleave', removeActive);
+
+function removeActive(){
+	setTimeout(function() {
+	  filterList.classList.remove('active');
+	}, 250);
+}
 
 // 2. Can you "subclass" the Location classes as Restaurants, Coffeshops, Parks, or other interesting locations?
 // 3. Can you use a .filter() method to get only some of the Locations from the array at a time?
