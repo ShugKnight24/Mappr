@@ -34,12 +34,14 @@
 	color: black;
 }
 
-.filter-list {
-	display: none;
+.actions:hover + .filter-list,
+.filter-list.active,
+.filter-list:hover {
+	display: block;
 }
 
-.filter-list.active {
-	display: block;
+.filter-list {
+	display: none;
 	position: absolute;
 	top: 70px;
 	left: auto;
