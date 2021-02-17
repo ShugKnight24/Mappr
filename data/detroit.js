@@ -284,6 +284,8 @@ let detroitRestaurants = [
 		specialty: 'Deep Dish Pizzas',
 		favDish: 'Meat Lovers Deep Dish',
 		delivers: true,
+		doorDashLink: false,
+		grubHubLink: false,
 		hours: {
 			0: {
 				open: [12,00,00],
