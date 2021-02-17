@@ -1,5 +1,64 @@
 // Data for Detroit Points of Interest
 
+let michiganLocations = [
+	{
+		name: 'Midtown',
+		position: [42.351427, -83.060863],
+		address: '',
+		image: 'Link to image',
+		type: 'Neighborhood'
+	},
+	{
+		name: 'Hazel Park',
+		position: [42.458927, -83.103676],
+		address: '',
+		image: 'Link to image',
+		type: 'City'
+	},
+	{
+		name: 'Ferndale',
+		position: [42.459377, -83.134127],
+		address: '',
+		image: 'Link to image',
+		type: 'City'
+	},
+	{
+		name: 'Southfield',
+		position: [42.471123, -83.220351],
+		address: '',
+		image: 'Link to image',
+		type: 'City'
+	},
+	{
+		name: 'Berkley',
+		position: [42.501758, -83.182586],
+		address: '',
+		image: 'Link to image',
+		type: 'City'
+	},
+	{
+		name: 'Rochester',
+		position: [42.679332, -83.133732],
+		address: '',
+		image: 'Link to image',
+		type: 'City'
+	},
+	{
+		name: 'Ann Arbor',
+		position: [42.267046, -83.731947],
+		address: '',
+		image: 'Link to image',
+		type: 'City'
+	},
+	{
+		name: 'Lansing',
+		position: [42.73352, -84.554355],
+		address: '',
+		image: 'Link to image',
+		type: 'City'
+	}
+]
+
 let detroitRestaurants = [
 	{
 		name: 'Pupuseria Y Restaurante Salvadoreno',
