@@ -828,3 +828,358 @@ let michiganCollegeTeams = [
 		mascot: 'Warriors'
 	}
 ]
+
+let detroitCoffee = [
+	{
+		name: 'Bean and Leaf Cafe',
+		position: [42.6818823, -83.1342262],
+		address: '439 S Main St, Rochester, MI 48307',
+		image: 'Link to image',
+		hours: {
+			0: {
+				open: [08,00,00],
+				close: [19,00,00]
+				}
+			,
+			1: {
+				open: [07,00,00],
+				close: [19,00,00]
+				}
+			,
+			2: {
+				open: [07,00,00],
+				close: [19,00,00]
+				}
+			,
+			3: {
+				open: [07,00,00],
+				close: [19,00,00]
+				}
+			,
+			4: {
+				open: [07,00,00],
+				close: [19,00,00]
+				}
+			,
+			5: {
+				open: [07,00,00],
+				close: [19,00,00]
+				}
+			,
+			6: {
+				open: [07,00,00],
+				close: [19,00,00]
+				}
+		},
+		phone: '+12486011411',
+		website: 'http://mybeanandleaf.com/'
+	},
+	{
+		name: 'Dessert Oasis Coffee Roasters Rochester',
+		position: [42.6805297, -83.1335292],
+		address: '336 S Main St, Rochester, MI 48307',
+		image: 'Link to image',
+		hours: {
+			0: {
+				open: [10,00,00],
+				close: [22,00,00]
+				}
+			,
+			1: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+			,
+			2: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+			,
+			3: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+			,
+			4: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+			,
+			5: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+			,
+			6: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+		},
+		phone: '+12484535239',
+		website: 'http://www.dessertoasiscoffee.com/'
+	},
+	{
+		name: 'Dessert Oasis Coffee Roasters Royal Oak',
+		position: [42.4893567, -83.1438969],
+		address: '115 S Main St, Royal Oak, MI 48067',
+		image: 'Link to image',
+		hours: {
+			0: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+			,
+			1: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+			,
+			2: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+			,
+			3: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+			,
+			4: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+			,
+			5: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+			,
+			6: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+		},
+		phone: '+12483077161',
+		website: 'http://docr.coffee/'
+	},
+	{
+		name: 'Atomic Coffee',
+		position: [42.4870806, -83.1437836],
+		address: '401 S Main St, Royal Oak, MI 48067',
+		image: 'Link to image',
+		hours: {
+			0: {
+				open: [08,00,00],
+				close: [20,00,00]
+				}
+			,
+			1: {
+				open: [08,00,00],
+				close: [20,00,00]
+				}
+			,
+			2: {
+				open: [08,00,00],
+				close: [20,00,00]
+				}
+			,
+			3: {
+				open: [08,00,00],
+				close: [20,00,00]
+				}
+			,
+			4: {
+				open: [08,00,00],
+				close: [20,00,00]
+				}
+			,
+			5: {
+				open: [08,00,00],
+				close: [20,00,00]
+				}
+			,
+			6: {
+				open: [08,00,00],
+				close: [20,00,00]
+				}
+		},
+		phone: '+12483978036',
+		website: 'http://atomiccoffee.net/'
+	},
+	{
+		name: 'Dessert Oasis Coffee Roasters Detroit',
+		position: [42.3329967, -83.0489534],
+		address: '1220 Griswold St, Detroit, MI 48226',
+		image: 'Link to image',
+		hours: {
+			0: {
+				open: [09,00,00],
+				close: [20,00,00]
+				}
+			,
+			1: {
+				open: [06,00,00],
+				close: [21,00,00]
+				}
+			,
+			2: {
+				open: [06,00,00],
+				close: [21,00,00]
+				}
+			,
+			3: {
+				open: [06,00,00],
+				close: [21,00,00]
+				}
+			,
+			4: {
+				open: [06,00,00],
+				close: [21,00,00]
+				}
+			,
+			5: {
+				open: [06,00,00],
+				close: [22,00,00]
+				}
+			,
+			6: {
+				open: [07,00,00],
+				close: [22,00,00]
+				}
+		},
+		phone: '+13133383515',
+		website: 'http://www.dessertoasiscoffee.com/'
+	},
+	{
+		name: 'ASHE Supply Co',
+		position: [42.3361523, -83.0493678],
+		address: '1555 Broadway St, Detroit, MI 48226',
+		image: 'Link to image',
+		hours: {
+			0: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			1: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			2: {
+				open: [08,00,00],
+				close: [14,00,00]
+				}
+			,
+			3: {
+				open: [08,00,00],
+				close: [14,00,00]
+				}
+			,
+			4: {
+				open: [08,00,00],
+				close: [14,00,00]
+				}
+			,
+			5: {
+				open: [08,00,00],
+				close: [14,00,00]
+				}
+			,
+			6: {
+				open: [08,00,00],
+				close: [14,00,00]
+				}
+		},
+		phone: '+13136722070',
+		website: 'http://www.ashesupplyco.com/'
+	},
+	{
+		name: 'Madcap Coffee Company',
+		position: [42.3347356, -83.0482326],
+		address: '1413 Farmer St, Detroit, MI 48226',
+		image: 'Link to image',
+		hours: {
+			0: {
+				open: [08,00,00],
+				close: [16,00,00]
+				}
+			,
+			1: {
+				open: [08,00,00],
+				close: [16,00,00]
+				}
+			,
+			2: {
+				open: [08,00,00],
+				close: [16,00,00]
+				}
+			,
+			3: {
+				open: [08,00,00],
+				close: [16,00,00]
+				}
+			,
+			4: {
+				open: [08,00,00],
+				close: [16,00,00]
+				}
+			,
+			5: {
+				open: [08,00,00],
+				close: [16,00,00]
+				}
+			,
+			6: {
+				open: [08,00,00],
+				close: [16,00,00]
+				}
+		},
+		phone: '+18888669091',
+		website: 'https://madcapcoffee.com/'
+	},
+	{
+		name: 'Roasting Plant Coffee',
+		position: [42.3312627, -83.0460499],
+		address: '660 Woodward Ave, Detroit, MI 48226',
+		image: 'Link to image',
+		hours: {
+			0: {
+				open: [11,00,00],
+				close: [20,00,00]
+				}
+			,
+			1: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			2: {
+				open: [08,00,00],
+				close: [15,00,00]
+				}
+			,
+			3: {
+				open: [08,00,00],
+				close: [15,00,00]
+				}
+			,
+			4: {
+				open: [08,00,00],
+				close: [15,00,00]
+				}
+			,
+			5: {
+				open: [08,00,00],
+				close: [20,00,00]
+				}
+			,
+			6: {
+				open: [11,00,00],
+				close: [20,00,00]
+				}
+		},
+		phone: '+13137824291',
+		website: 'http://roastingplant.com/'
+	}
+]
