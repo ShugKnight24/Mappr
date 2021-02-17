@@ -41,8 +41,9 @@ class CoffeeShop extends Location {
 		position,
 		address,
 		image,
-		specialty,
-		hours
+		hours,
+		phone,
+		website
 	){
 		super(
 			name,
@@ -51,8 +52,46 @@ class CoffeeShop extends Location {
 			image
 		);
 		this.type = 'Coffee Shop';
-		this.specialty = specialty;
 		this.hours = hours;
+		this.phone = phone;
+		this.website = website;
+	}
+
+	buildModal(){
+
+		L.marker(this.position)
+		.bindPopup(
+		`
+			${
+				this.website
+				?
+				`<a href=${ this.website }
+					rel="noopener noreferrer"
+					target="_blank"
+				>
+					<h2>${ this.name }</h2>
+				</a>`
+				:
+				`<h2>${ this.name }</h2>`
+			}
+			<p><b>Type:</b> ${ this.type }</p>
+			<p><b>Address:</b> ${ this.address }</p>
+			${
+				this.phone
+				?
+				`<p><b>Phone #:</b>
+					<a href=tel:${ this.phone }
+					>
+					${ this.phone }
+					</a>
+				</p>`
+				:
+				``
+			}
+		`
+		)
+		.openPopup()
+		.addTo(myMap)
 	}
 }
 
