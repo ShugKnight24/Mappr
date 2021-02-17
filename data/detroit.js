@@ -322,6 +322,356 @@ let detroitRestaurants = [
 		},
 		phone: '(248) 547-1711',
 		website: false
+	},
+	{
+		name: 'Too Ra Loo',
+		position: [42.678046, -83.133952],
+		address: '139 S Main St, Rochester, MI 48307',
+		image: 'Link to image',
+		cuisineType: 'Bar Food',
+		specialty: 'Thin Crust Pizzas',
+		favDish: 'Ancient Grains Salad',
+		delivers: false,
+		doorDashLink: false,
+		grubHubLink: false,
+		hours: {
+			0: {
+				open: [10,00,00],
+				close: [22,00,00]
+				}
+			,
+			1: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			2: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			3: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			4: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			5: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			6: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+		},
+		phone: '(248) 453-5291',
+		website: 'http://tooraloorochester.com/'
+	},
+	{
+		name: 'Georgio\'s Pizza & Pasta',
+		position: [42.677443, -83.13389],
+		address: '117 S Main St, Rochester, MI 48307',
+		image: 'Link to image',
+		cuisineType: 'Italian',
+		specialty: 'Pizza',
+		favDish: 'Meat Lovers Pizza',
+		delivers: true,
+		doorDashLink: false,
+		grubHubLink: 'https://www.grubhub.com/restaurant/georgios-pizza--pasta-117-s-main-st-rochester/1784015',
+		hours: {
+			0: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			1: {
+				open: [11,00,00],
+				close: [21,00,00]
+				}
+			,
+			2: {
+				open: [11,00,00],
+				close: [21,00,00]
+				}
+			,
+			3: {
+				open: [11,00,00],
+				close: [21,00,00]
+				}
+			,
+			4: {
+				open: [11,00,00],
+				close: [21,00,00]
+				}
+			,
+			5: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			6: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+		},
+		phone: '+12486012882',
+		website: 'https://www.georgiospizzapasta.com/'
+	},
+	{
+		name: 'Kabin Kruser\'s Oyster Bar',
+		position: [42.67965, -83.133493],
+		address: '306 S Main St, Rochester, MI 48307',
+		image: 'Link to image',
+		cuisineType: 'Seafood',
+		specialty: 'Fresh Seafood',
+		favDish: 'Tom Beard\'s Clam Chowder',
+		delivers: false,
+		doorDashLink: false,
+		grubHubLink: false,
+		hours: {
+			0: {
+				open: [12,00,00],
+				close: [20,00,00]
+				}
+			,
+			1: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			2: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			3: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			4: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			5: {
+				open: [12,00,00],
+				close: [22,00,00]
+				}
+			,
+			6: {
+				open: [12,00,00],
+				close: [22,00,00]
+				}
+		},
+		phone: '+12486512266',
+		website: 'http://kruseandmuerrestaurants.com/'
+	},
+	{
+		name: 'Rochester Chop House & Bar',
+		position: [42.679664, -83.133048],
+		address: '306 S Main St, Rochester, MI 48307',
+		image: 'Link to image',
+		cuisineType: 'Steaks',
+		specialty: '',
+		favDish: 'Delmonico',
+		delivers: false,
+		doorDashLink: false,
+		grubHubLink: false,
+		hours: {
+			0: {
+				open: [12,00,00],
+				close: [20,00,00]
+				}
+			,
+			1: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			2: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			3: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			4: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			5: {
+				open: [12,00,00],
+				close: [22,00,00]
+				}
+			,
+			6: {
+				open: [12,00,00],
+				close: [22,00,00]
+				}
+		},
+		phone: '+12486512266',
+		website: 'http://kruseandmuerrestaurants.com/'
+	},
+	{
+		name: 'O\'Connor\'s Public House',
+		position: [42.680224, -83.133469],
+		address: '324 S Main St, Rochester, MI 48307',
+		image: 'Link to image',
+		cuisineType: 'Irish',
+		specialty: 'Bangers & Mash',
+		favDish: 'Taco Salad',
+		delivers: true,
+		doorDashLink: false,
+		grubHubLink: 'https://www.grubhub.com/restaurant/oconnors-public-house-324-s-main-st-rochester/2358122',
+		hours: {
+			0: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			1: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			2: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			3: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			4: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			5: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			6: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+		},
+		phone: '+12486082537',
+		website: 'http://oconnorsrochester.com/home'
+	},
+	{
+		name: 'Sumo Sushi & Seafood',
+		position: [42.681385, -83.13352],
+		address: '418 N Main St, Rochester, MI 48307',
+		image: 'Link to image',
+		cuisineType: 'Japanese',
+		specialty: 'Sushi',
+		favDish: 'Dragon Roll',
+		delivers: false,
+		doorDashLink: false,
+		grubHubLink: false,
+		hours: {
+			0: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			1: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			2: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			3: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			4: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			5: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			6: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+		},
+		phone: '+12486010104',
+		website: 'http://www.sumosushiandseafood.com/'
+	},
+	{
+		name: 'Hibachi House Grill & Bar',
+		position: [42.6804067, -83.1342074],
+		address: '335 S Main St, Rochester, MI 48307',
+		image: 'Link to image',
+		cuisineType: 'Japanese',
+		specialty: 'Hibachi',
+		favDish: 'Everything',
+		delivers: false,
+		doorDashLink: false,
+		grubHubLink: false,
+		hours: {
+			0: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			1: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			2: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			3: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			4: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			5: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+			,
+			6: {
+				open: [12,00,00],
+				close: [21,00,00]
+				}
+		},
+		phone: '+12482666055',
+		website: 'http://www.hibachihouserochester.com/'
 	}
 ];
 
