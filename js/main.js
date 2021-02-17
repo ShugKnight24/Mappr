@@ -6,21 +6,28 @@ class Location {
 		name,
 		position,
 		address,
-		image
+		image,
+		type
 	){
 		this.name = name;
 		this.position = position;
 		this.address = address;
 		this.image = image;
+		this.type = type;
 	}
 
 	buildModal(){
-		L.marker(this.position)
+		let iconType = this.type === 'Neighborhood' ? neighborhoodIcon : cityIcon;
+
+		L.marker(
+			this.position,
+			{
+				icon: iconType
+			}
+		)
 		.bindPopup(
 			`
-				<h2>${ this.name }</h2>
-				<p><b>Address:</b> ${ this.address }</p>
-				<p><b>Address:</b> ${ this.address }</p>
+				<h2>${ this.type } of ${ this.name }</h2>
 			`
 		)
 		.openPopup()
@@ -328,6 +335,31 @@ const myBasemap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
 
 // Add basemap to map id
 myBasemap.addTo(myMap);
+
+// Add custom Icons for different location types
+// https://leafletjs.com/examples/custom-icons/
+
+var neighborhoodIcon = L.icon({
+	iconUrl: 'img/leaf-red.png',
+	shadowUrl: 'img/leaf-shadow.png',
+
+	iconSize:     [38, 95], // size of the icon
+	shadowSize:   [50, 64], // size of the shadow
+	iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+	shadowAnchor: [4, 62],  // the same for the shadow
+	popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+var cityIcon = L.icon({
+	iconUrl: 'img/leaf-green.png',
+	shadowUrl: 'img/leaf-shadow.png',
+
+	iconSize:     [38, 95], // size of the icon
+	shadowSize:   [50, 64], // size of the shadow
+	iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+	shadowAnchor: [4, 62],  // the same for the shadow
+	popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
 
 // Set view of the map
 setMapLocation();
