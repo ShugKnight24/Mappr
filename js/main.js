@@ -379,8 +379,8 @@ myBasemap.addTo(myMap);
 // https://leafletjs.com/examples/custom-icons/
 
 var neighborhoodIcon = L.icon({
-	iconUrl: 'img/leaf-red.png',
-	shadowUrl: 'img/leaf-shadow.png',
+	iconUrl: 'img/icons/leaf-red.png',
+	shadowUrl: 'img/icons/leaf-shadow.png',
 
 	iconSize:     [38, 95], // size of the icon
 	shadowSize:   [50, 64], // size of the shadow
@@ -390,8 +390,8 @@ var neighborhoodIcon = L.icon({
 });
 
 var cityIcon = L.icon({
-	iconUrl: 'img/leaf-green.png',
-	shadowUrl: 'img/leaf-shadow.png',
+	iconUrl: 'img/icons/leaf-green.png',
+	shadowUrl: 'img/icons/leaf-shadow.png',
 
 	iconSize:     [38, 95], // size of the icon
 	shadowSize:   [50, 64], // size of the shadow
