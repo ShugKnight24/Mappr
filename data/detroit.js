@@ -112,7 +112,7 @@ let detroitRestaurants = [
 	},
 	{
 		name: 'Mudgie\'s Deli and Bar',
-		position: [42.32923, -83.06178],
+		position: [42.329035, -83.061989],
 		address: '1413 Brooklyn St, Detroit, MI 48226',
 		image: 'Link to image',
 		cuisineType: '',
@@ -678,7 +678,7 @@ let detroitRestaurants = [
 let detroitSportsTeams = [
 	{
 		name: 'Detroit Lions',
-		position: [42.34001, -83.04779],
+		position: [42.339885, -83.045703],
 		address: '2000 Brush St, Detroit, MI 48226',
 		image: 'Link to image',
 		sport: 'Football',
@@ -700,7 +700,7 @@ let detroitSportsTeams = [
 	},
 	{
 		name: 'Detroit Pistons',
-		position: [42.34110, -83.0574],
+		position: [42.340965, -83.055182],
 		address: '2645 Woodward Ave, Detroit, MI 48201',
 		image: 'Link to image',
 		sport: 'Basketball',
@@ -722,7 +722,7 @@ let detroitSportsTeams = [
 	},
 	{
 		name: 'Detroit Red Wings',
-		position: [42.34110, -83.0574],
+		position: [42.341171, -83.054849],
 		address: '2645 Woodward Ave, Detroit, MI 48201',
 		image: 'Link to image',
 		sport: 'Hockey',
@@ -733,7 +733,7 @@ let detroitSportsTeams = [
 	},
 	{
 		name: 'Detroit Red Wings',
-		position: [42.32523, -83.05485],
+		position: [42.325268, -83.052689],
 		address: '19 Steve Yzerman Drive, Detroit, MI 48226',
 		image: 'Link to image',
 		sport: 'Hockey',
@@ -744,7 +744,7 @@ let detroitSportsTeams = [
 	},
 	{
 		name: 'Detroit Tigers',
-		position: [42.34110, -83.0574],
+		position: [42.339271, -83.048893],
 		address: '2645 Woodward Ave, Detroit, MI 48201',
 		image: 'Link to image',
 		sport: 'Baseball',
@@ -755,7 +755,7 @@ let detroitSportsTeams = [
 	},
 	{
 		name: 'Detroit Tigers',
-		position: [42.34110, -83.0574],
+		position: [42.3311772, -83.0690979],
 		address: '1680 Michigan Ave, Detroit, MI 48216',
 		image: 'Link to image',
 		sport: 'Baseball',
