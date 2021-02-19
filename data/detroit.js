@@ -59,6 +59,99 @@ let michiganLocations = [
 	}
 ]
 
+let michiganParks = [
+	{
+		name: 'Belle Isle State Park',
+		position: [42.342052, -82.970467],
+		address: '',
+		image: 'Link to image',
+		hours: ''
+	},
+	{
+		name: 'Bedford Woods',
+		position: [42.50778, -83.217114],
+		address: '',
+		image: 'Link to image',
+		hours: ''
+	},
+	{
+		name: 'Beverly Park',
+		position: [42.522666, -83.231124],
+		address: '',
+		image: 'Link to image',
+		hours: ''
+	},
+	{
+		name: 'Bloomer Park',
+		position: [42.676198, -83.106035],
+		address: '',
+		image: 'Link to image',
+		hours: ''
+	},
+	{
+		name: 'Carpenter Lake Nature Preserve',
+		position: [42.466519, -83.314276],
+		address: '',
+		image: 'Link to image',
+		hours: ''
+	},
+	{
+		name: 'Inglenook Park',
+		position: [42.499692, -83.251946],
+		address: '',
+		image: 'Link to image',
+		hours: ''
+	},
+	{
+		name: 'Mackinac Island State Park',
+		position: [45.864773, -84.625397],
+		address: '7029 Huron Rd. Mackinac Island, MI, USA',
+		image: 'Link to image',
+		hours: ''
+	},
+	{
+		name: 'Pictured Rocks National Lakeshore',
+		position: [46.541424, -86.413463],
+		address: 'N8391 Sand Point Rd, Munising, MI 49862',
+		image: 'Link to image',
+		hours: ''
+	},
+	{
+		name: 'Porcupine Mountains Wilderness State Park',
+		position: [46.765296, -89.791609],
+		address: '',
+		image: 'Link to image',
+		hours: ''
+	},
+	{
+		name: 'Sleeping Bear Dunes National Lakeshore',
+		position: [44.892985, -86.016414],
+		address: '',
+		image: 'Link to image',
+		hours: ''
+	},
+	{
+		name: 'Saugatuck Dunes State Park',
+		position: [42.697079, -86.204067],
+		address: '',
+		image: 'Link to image',
+		hours: ''
+	},
+	{
+		name: 'Stony Creek Metropark',
+		position: [42.733123, -83.073216],
+		address: '',
+		image: 'Link to image',
+		hours: ''
+	},
+	{
+		name: 'Warren Dunes State Park',
+		position: [41.920232, -86.589989],
+		address: '12032 Red Arrow Hwy, Sawyer, MI',
+		image: 'Link to image',
+		hours: ''
+	}
+]
 let detroitRestaurants = [
 	{
 		name: 'Pupuseria Y Restaurante Salvadoreno',

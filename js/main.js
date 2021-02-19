@@ -152,6 +152,23 @@ class Park extends Location {
 		this.type = 'Park';
 		this.hours = hours;
 	}
+
+	buildModal(){
+
+		L.marker(
+			this.position,
+			{
+				icon: parkIcon
+			}
+		)
+		.bindPopup(
+			`
+				<h2>${ this.name }</h2>
+			`
+		)
+		.openPopup()
+		.addTo(markers);
+	}
 }
 
 
@@ -401,6 +418,16 @@ var cityIcon = L.icon({
 	popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
 });
 
+var parkIcon = L.icon({
+	iconUrl: 'img/icons/park_pin.png',
+	shadowUrl: null,
+
+	iconSize:     [50, 55], // size of the icon
+	shadowSize:   [0, 0], // size of the shadow
+	iconAnchor:   [50, 50], // point of the icon which will correspond to marker's location
+	shadowAnchor: [0, 0],  // the same for the shadow
+	popupAnchor:  [-25, -55] // point from which the popup should open relative to the iconAnchor
+});
 // Set view of the map
 setMapLocation();
 
@@ -444,6 +471,23 @@ michiganLocations.map((location, index) => {
 	locations[index].buildModal();
 
 	allLocations.push(locations[index]);
+});
+
+let parks = [];
+
+michiganParks.map((park, index) => {
+
+	parks[index] = new Park(
+		park.name,
+		park.position,
+		park.address,
+		park.image,
+		park.type,
+		park.hours
+	);
+
+	parks[index].buildModal();
+	allLocations.push(parks[index]);
 });
 
 
