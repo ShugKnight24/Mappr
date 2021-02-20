@@ -764,6 +764,8 @@ function legendFilterFunct(){
 			item.buildModal();
 		}
 	});
+
+	legend.classList.toggle('active');
 }
 
 // Legend Logic
