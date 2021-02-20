@@ -154,3 +154,92 @@
 .grubhub-link:hover .grubhub-logo {
 	fill: #F51423;
 }
+
+/* Legend Styles */
+.legend-container {
+	z-index: 999;
+	bottom: 25px;
+	left: 25px;
+	position: absolute;
+	background-color: var(--main-accent);
+	color: #FFF;
+	text-align: left;
+	padding: 10px 25px;
+	font-size: 24px;
+	border-radius: 20px;
+}
+
+h4 {
+	display: inline-block;
+	color: white;
+	text-decoration: underline;
+	margin: 0;
+	padding-bottom: 15px;
+}
+
+.legend-open,
+.legend-close {
+	vertical-align: middle;
+	display: none;
+}
+
+.legend-open.active,
+.legend-close.active {
+	display: inline-block;
+}
+
+.legend-open:hover,
+.legend-close:hover {
+	cursor: pointer;
+}
+
+.fa-plus-circle,
+.fa-minus-circle {
+	width: 24px;
+	height: 24px;
+	background-color: #FFF;
+	border: 1px solid #FFF;
+	border-radius: 50%;
+	margin-left: 15px;
+}
+
+.icon.minus-icon {
+	color: #FF0000;
+}
+.icon.minus-icon:hover {
+	color: #E00000;
+}
+
+.icon.plus-icon {
+	color: #00FF00;
+}
+.icon.plus-icon:hover {
+	color: #00E000;
+}
+
+.legend {
+	color: #FFF;
+	font-weight: bold;
+	padding: 0 40px 20px;
+	display: none;
+}
+
+.legend.active {
+	display: block;
+}
+
+.legend p {
+	margin: 0 0 10px;
+}
+
+.legend p:hover {
+	cursor: pointer;
+}
+
+.legend p img {
+	max-width: 75px;
+	max-height: 90px;
+	background-color: #FFF;
+	padding: 5px;
+	vertical-align: middle;
+}

@@ -8,6 +8,7 @@
 	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
 	integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
 	crossorigin=""/>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.2/css/all.css">
 	<link rel="stylesheet" href="/css/main.css">
 	<title>Mappr</title>
 </head>
@@ -33,6 +34,70 @@
 		</div>
 
 		<div id="map"></div>
+
+		<div class="legend-container">
+			<h4>Legend</h4>
+			<span class="legend-open active">
+				<span class="icon plus-icon">
+					<i class="fas fa-plus-circle"></i>
+				</span>
+			</span>
+			<span class="legend-close">
+				<span class="icon minus-icon">
+					<i class="fas fa-minus-circle"></i>
+				</span>
+			</span>
+			<div class="legend">
+				<p data-filter="Beach">
+					<span>
+						<img src="img/icons/beach_chair_pin.png" alt="Beach Chair - Beaches Icon">
+					</span>
+					<span>
+						- Beaches Icon
+					</span>
+				</p>
+				<p data-filter="City">
+					<span>
+						<img src="img/icons/leaf-green.png" alt="Green Leaf - City Icon">
+					</span>
+					<span>
+						- City Icon
+					</span>
+				</p>
+				<p data-filter="Coffee Shop">
+					<span>
+						<img src="img/icons/marker_icon.png" alt="Blue Marker -  Coffeeshops Icon">
+					</span>
+					<span>
+						- Coffeeshops Icon
+					</span>
+				</p>
+				<p data-filter="Neighborhood">
+					<span>
+						<img src="img/icons/leaf-red.png" alt="Red Leaf - Neighborhoods Icon">
+					</span>
+					<span>
+						- Neighborhood Icon
+					</span>
+				</p>
+				<p data-filter="Park">
+					<span>
+						<img src="img/icons/park_pin.png" alt="Tree Marker -  Park Icon">
+					</span>
+					<span>
+						- Parks Icon
+					</span>
+				</p>
+				<p data-filter="Restaurant">
+					<span>
+						<img src="img/icons/marker_icon.png" alt="Blue Marker - Restaurants & Coffeeshops Icon">
+					</span>
+					<span>
+						- Restaurants Icon
+					</span>
+				</p>
+			</div>
+		</div>
 	</main>
 	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
 	integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
