@@ -1120,7 +1120,7 @@ let michiganCollegeTeams = [
 	},
 	{
 		name: 'Wayne State University',
-		position: [42.35500, -83.07835],
+		position: [42.354974, -83.076142],
 		address: '5101 John C Lodge Fwy, Detroit, MI 48202',
 		image: 'Link to image',
 		sport: 'Basketball',
@@ -1130,10 +1130,30 @@ let michiganCollegeTeams = [
 	},
 	{
 		name: 'Wayne State University',
-		position: [42.35500, -83.07835],
+		position: [42.355791, -83.0784],
 		address: '42 W Warren Ave, Detroit, MI 48208',
 		image: 'Link to image',
 		sport: 'Football',
+		conference: 'GLIAC',
+		stadiumName: 'Adams Field',
+		mascot: 'Warriors'
+	},
+	{
+		name: 'Wayne State University',
+		position: [42.356874, -83.07691],
+		address: '5301 John C Lodge Fwy, Detroit, MI 48201',
+		image: 'Link to image',
+		sport: 'Baseball',
+		conference: 'GLIAC',
+		stadiumName: 'Adams Field',
+		mascot: 'Warriors'
+	},
+	{
+		name: 'Wayne State University',
+		position: [42.355778, -83.076089],
+		address: '5327 John C Lodge Service Dr, Detroit, MI 48208',
+		image: 'Link to image',
+		sport: 'Tennis',
 		conference: 'GLIAC',
 		stadiumName: 'Adams Field',
 		mascot: 'Warriors'
