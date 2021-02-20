@@ -196,6 +196,41 @@ class Park extends Location {
 	}
 }
 
+class Beach extends Location {
+	constructor(
+		name,
+		position,
+		address,
+		image,
+		hours
+	){
+		super(
+			name,
+			position,
+			address,
+			image
+		);
+		this.type = 'Beach';
+		this.hours = hours;
+	}
+
+	buildModal(){
+
+		L.marker(
+			this.position,
+			{
+				icon: beachIcon
+			}
+		)
+		.bindPopup(
+			`
+				<h2>${ this.name }</h2>
+			`
+		)
+		.openPopup()
+		.addTo(markers);
+	}
+}
 
 class Restaurant extends Location {
 	constructor(
@@ -453,6 +488,18 @@ var parkIcon = L.icon({
 	shadowAnchor: [0, 0],  // the same for the shadow
 	popupAnchor:  [-25, -55] // point from which the popup should open relative to the iconAnchor
 });
+
+var beachIcon = L.icon({
+	iconUrl: 'img/icons/beach_chair_pin.png',
+	shadowUrl: null,
+
+	iconSize:     [50, 55], // size of the icon
+	shadowSize:   [0, 0], // size of the shadow
+	iconAnchor:   [50, 50], // point of the icon which will correspond to marker's location
+	shadowAnchor: [0, 0],  // the same for the shadow
+	popupAnchor:  [-25, -55] // point from which the popup should open relative to the iconAnchor
+});
+
 // Set view of the map
 setMapLocation();
 
@@ -513,6 +560,23 @@ michiganParks.map((park, index) => {
 
 	parks[index].buildModal();
 	allLocations.push(parks[index]);
+});
+
+let beaches = [];
+
+michiganBeaches.map((beach, index) => {
+
+	beaches[index] = new Beach(
+		beach.name,
+		beach.position,
+		beach.address,
+		beach.image,
+		beach.type,
+		beach.hours
+	);
+
+	beaches[index].buildModal();
+	allLocations.push(beaches[index]);
 });
 
 

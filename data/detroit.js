@@ -215,6 +215,24 @@ let michiganParks = [
 		hours: ''
 	}
 ]
+
+let michiganBeaches = [
+	{
+		name: 'Holland State Park Beach',
+		position: [42.77463, -86.212018],
+		address: '2215 Ottawa Beach Rd West end of Ottawa Beach Road, Holland, MI 49424',
+		image: 'Link to image',
+		hours: '',
+	},
+	{
+		name: 'Warren Dunes State Park',
+		position: [41.920232, -86.589989],
+		address: '12032 Red Arrow Hwy, Sawyer, MI',
+		image: 'Link to image',
+		hours: ''
+	}
+]
+
 let detroitRestaurants = [
 	{
 		name: 'Pupuseria Y Restaurante Salvadoreno',
