@@ -747,6 +747,42 @@ function removeActive(){
 
 // 2. Can you "subclass" the Location classes as Restaurants, Coffeshops, Parks, or other interesting locations?
 // 3. Can you use a .filter() method to get only some of the Locations from the array at a time?
+// Legend Filter
+const legendFilter = document.querySelectorAll('.legend p');
+
+legendFilter.forEach(function(filter){
+	filter.addEventListener('click', legendFilterFunct);
+});
+
+function legendFilterFunct(){
+	let filteredType = this.getAttribute('data-filter');
+
+	markers.clearLayers();
+
+	allLocations.filter(function(item){
+		if (item.type === 'College Team'){
+			item.type = 'Sports Team'
+		}
+
+		if (item.type === filteredType){
+			item.buildModal();
+		}
+	});
+}
+
+// Legend Logic
+const legendOpen = document.querySelector('.legend-open');
+const legendClose = document.querySelector('.legend-close');
+const legend = document.querySelector('.legend');
+
+legendOpen.addEventListener('click', toggleLegendActive);
+legendClose.addEventListener('click', toggleLegendActive);
+
+function toggleLegendActive(){
+	legendOpen.classList.toggle('active');
+	legendClose.classList.toggle('active');
+	legend.classList.toggle('active');
+}
 
 // listORestaurants.map(restaurant => {
 // 	L.marker([restaurant.lat, restaurant.long])
