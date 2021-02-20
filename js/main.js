@@ -139,6 +139,21 @@ class College extends Location {
 		this.mascot = mascot;
 		this.enrollment = enrollment;
 	}
+
+	buildModal(){
+		L.marker(this.position)
+		.bindPopup(
+		`
+			<h2>${ this.name }</h2>
+			<p><b>Address:</b> ${ this.address }</p>
+			<p><b>Mascot:</b> ${ this.mascot }</p>
+			<p><b>Type:</b> ${ this.type }</p>
+			<p><b>Enrollment #'s:</b> ${ this.enrollment }</p>
+		`
+		)
+		.openPopup()
+		.addTo(markers)
+	}
 }
 
 class Museum extends Location {
@@ -528,6 +543,23 @@ function setMapTitle(cityName){
 }
 
 let allLocations = [];
+
+let colleges = [];
+
+michiganColleges.map((college, index) => {
+	colleges[index] = new College(
+		college.name,
+		college.position,
+		college.address,
+		college.image,
+		college.type,
+		college.mascot,
+		college.enrollment
+	);
+
+	colleges[index].buildModal();
+	allLocations.push(colleges[index]);
+});
 
 let locations = [];
 

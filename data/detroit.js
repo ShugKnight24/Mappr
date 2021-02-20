@@ -233,6 +233,41 @@ let michiganBeaches = [
 	}
 ]
 
+let michiganColleges = [
+	{
+		name: 'Wayne State University',
+		position: [42.3574422, -83.0707787],
+		address: '5155 Gullen Mall, Detroit, MI 48202',
+		image: '',
+		mascot: 'Warriors',
+		enrollment: 17513
+	},
+	{
+		name: 'Wayne State University - School of Medicine',
+		position: [42.3549057, -83.0589533],
+		address: '540 E Canfield St, Detroit, MI 48201',
+		image: '',
+		mascot: 'Warriors',
+		enrollment: 1188
+	},
+	{
+		name: 'Wayne State University - Law School',
+		position: [42.3589094, -83.0711628],
+		address: '471 W Palmer Ave, Detroit, MI 48202',
+		image: '',
+		mascot: 'Warriors',
+		enrollment: 349
+	},
+	{
+		name: 'Wayne State University - Eugene Applebaum College of Pharmacy and Health Sciences',
+		position: [42.3488332, -83.059598],
+		address: '259 Mack Ave, Detroit, MI 48201',
+		image: '',
+		mascot: 'Warriors',
+		enrollment: 569
+	}
+]
+
 let detroitRestaurants = [
 	{
 		name: 'Pupuseria Y Restaurante Salvadoreno',
