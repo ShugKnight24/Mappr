@@ -234,11 +234,12 @@ h4 {
 
 .legend p:hover {
 	cursor: pointer;
+	opacity: .7;
 }
 
 .legend p img {
-	max-width: 75px;
-	max-height: 90px;
+	max-width: 60px;
+	max-height: 60px;
 	background-color: #FFF;
 	padding: 5px;
 	vertical-align: middle;
