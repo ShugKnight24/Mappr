@@ -883,6 +883,106 @@ let detroitRestaurants = [
 		},
 		phone: '+12482666055',
 		website: 'http://www.hibachihouserochester.com/'
+	},
+	{
+		name: 'Como\'s Restaurant',
+		position: [42.4608617, -83.1363673],
+		address: '22812 Woodward Ave #100, Ferndale, MI 48220',
+		image: 'Link to image',
+		cuisineType: 'American',
+		specialty: 'Pizza',
+		favDish: 'BBQ Chicken Pizza',
+		delivers: false,
+		doorDashLink: false,
+		grubHubLink: false,
+		hours: {
+			0: {
+				open: [11,00,00],
+				close: [22,00,00]
+				}
+			,
+			1: {
+				open: [12,00,00],
+				close: [22,00,00]
+				}
+			,
+			2: {
+				open: [12,00,00],
+				close: [22,00,00]
+				}
+			,
+			3: {
+				open: [12,00,00],
+				close: [22,00,00]
+				}
+			,
+			4: {
+				open: [12,00,00],
+				close: [23,00,00]
+				}
+			,
+			5: {
+				open: [12,00,00],
+				close: [23,00,00]
+				}
+			,
+			6: {
+				open: [11,00,00],
+				close: [23,00,00]
+				}
+		},
+		phone: '+12486774439',
+		website: 'https://www.comosrestaurant.com/'
+	},
+	{
+		name: 'Khom Fai',
+		position: [42.6566465, -82.9379283],
+		address: '48856 Romeo Plank Road, Macomb, MI 48044',
+		image: 'Link to image',
+		cuisineType: 'Thai',
+		specialty: 'Curry',
+		favDish: 'Everything',
+		delivers: false,
+		doorDashLink: false,
+		grubHubLink: false,
+		hours: {
+			0: {
+				open: [15,00,00],
+				close: [21,00,00]
+				}
+			,
+			1: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			2: {
+				open: [15,00,00],
+				close: [21,00,00]
+				}
+			,
+			3: {
+				open: [15,00,00],
+				close: [21,00,00]
+				}
+			,
+			4: {
+				open: [15,00,00],
+				close: [21,00,00]
+				}
+			,
+			5: {
+				open: [15,00,00],
+				close: [21,00,00]
+				}
+			,
+			6: {
+				open: [15,00,00],
+				close: [21,00,00]
+				}
+		},
+		phone: '+15862477773',
+		website: 'https://www.khomfai.com/'
 	}
 ];
 
