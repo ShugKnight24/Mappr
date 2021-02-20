@@ -2,8 +2,71 @@
 
 let michiganLocations = [
 	{
+		name: 'Cass Corridor',
+		position: [42.349334, -83.062874],
+		address: '',
+		image: 'Link to image',
+		type: 'Neighborhood'
+	},
+	{
+		name: 'Corktown',
+		position: [42.331393, -83.066941],
+		address: '',
+		image: 'Link to image',
+		type: 'Neighborhood'
+	},
+	{
+		name: 'Downtown',
+		position: [42.329796, -83.045559],
+		address: '',
+		image: 'Link to image',
+		type: 'Neighborhood'
+	},
+	{
+		name: 'Eastern Market',
+		position: [42.3496135, -83.0439744],
+		address: '',
+		image: 'Link to image',
+		type: 'Neighborhood'
+	},
+	{
+		name: 'Greektown',
+		position: [42.334286, -83.042347],
+		address: '',
+		image: 'Link to image',
+		type: 'Neighborhood'
+	},
+	{
+		name: 'Indian Village',
+		position: [42.361625, -82.996604],
+		address: '',
+		image: 'Link to image',
+		type: 'Neighborhood'
+	},
+	{
 		name: 'Midtown',
 		position: [42.351427, -83.060863],
+		address: '',
+		image: 'Link to image',
+		type: 'Neighborhood'
+	},
+	{
+		name: 'New Center',
+		position: [42.37052, -83.073727],
+		address: '',
+		image: 'Link to image',
+		type: 'Neighborhood'
+	},
+	{
+		name: 'North End',
+		position: [42.379164, -83.074127],
+		address: '',
+		image: 'Link to image',
+		type: 'Neighborhood'
+	},
+	{
+		name: 'Southwest (Mexicantown)',
+		position: [42.321248, -83.086419],
 		address: '',
 		image: 'Link to image',
 		type: 'Neighborhood'

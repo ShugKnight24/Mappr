@@ -16,22 +16,47 @@ class Location {
 		this.type = type;
 	}
 
-	buildModal(){
-		let iconType = this.type === 'Neighborhood' ? neighborhoodIcon : cityIcon;
+	checkIfDowntown(){
+		if (this.name === 'Downtown' || 'Southwest'){
+			L.marker(
+				this.position,
+				{
+					icon: neighborhoodIcon
+				}
+			)
+			.bindPopup(
+				`
+					<h2>${ this.name } Detroit</h2>
+				`
+			)
+			.openPopup()
+			.addTo(markers);
 
-		L.marker(
-			this.position,
-			{
-				icon: iconType
-			}
-		)
-		.bindPopup(
-			`
-				<h2>${ this.type } of ${ this.name }</h2>
-			`
-		)
-		.openPopup()
-		.addTo(markers);
+			return true;
+		}
+	}
+
+	buildModal(){
+
+		if (this.checkIfDowntown()){
+			this.checkIfDowntown();
+		} else {
+			let iconType = this.type === 'Neighborhood' ? neighborhoodIcon : cityIcon;
+
+			L.marker(
+				this.position,
+				{
+					icon: iconType
+				}
+			)
+			.bindPopup(
+				`
+					<h2>${ this.type } of ${ this.name }</h2>
+				`
+			)
+			.openPopup()
+			.addTo(markers);
+		}
 	}
 }
 
