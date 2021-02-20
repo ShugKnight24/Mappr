@@ -1,5 +1,6 @@
 .map-container {
 	position: relative;
+	--main-accent: #3E42F0;
 }
 
 #map {
@@ -15,7 +16,7 @@
 	top: 12.5px;
 	left: 100px;
 	z-index: 999;
-	background-color: black;
+	background-color: var(--main-accent);
 	color: white;
 	padding: 10px 25px;
 	border-radius: 20px;
@@ -26,12 +27,14 @@
 	right: 50px;
 	font-size: 24px;
 	font-weight: bold;
+	border: 1px solid transparent;
 }
 
 .actions:hover {
 	cursor: pointer;
 	background-color: white;
-	color: black;
+	color: var(--main-accent);
+	border-color: var(--main-accent);
 }
 
 .actions:hover + .filter-list,
@@ -48,8 +51,8 @@
 	right: 35px;
 	z-index: 999;
 	background-color: white;
-	color: black;
-	border: 1px solid black;
+	color: var(--main-accent);
+	border: 1px solid var(--main-accent);
 	font-size: 21px;
 	padding: 0;
 }
@@ -61,7 +64,7 @@
 	content: '';
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	border-bottom: 10px solid black;
+	border-bottom: 10px solid var(--main-accent);
 	top: -10px;
 	right: 45%;
 	z-index: 999;
@@ -91,7 +94,7 @@
 
 .filter-list ul li.active,
 .filter-list ul li:hover {
-	background-color: black;
+	background-color: var(--main-accent);
 	color: white;
 	cursor: pointer;
 }
