@@ -307,7 +307,6 @@ class Restaurant extends Location {
 			</a>`;
 		}
 
-
 		L.marker(this.position)
 		.bindPopup(
 		`
@@ -573,7 +572,6 @@ michiganLocations.map((location, index) => {
 	);
 
 	locations[index].buildModal();
-
 	allLocations.push(locations[index]);
 });
 
@@ -741,12 +739,10 @@ actions.addEventListener('mouseleave', removeActive);
 
 function removeActive(){
 	setTimeout(function() {
-	  filterList.classList.remove('active');
+		filterList.classList.remove('active');
 	}, 250);
 }
 
-// 2. Can you "subclass" the Location classes as Restaurants, Coffeshops, Parks, or other interesting locations?
-// 3. Can you use a .filter() method to get only some of the Locations from the array at a time?
 // Legend Filter
 const legendFilter = document.querySelectorAll('.legend p');
 
@@ -798,10 +794,6 @@ function toggleLegendActive(){
 // 	.openPopup()
 // 	.addTo(myMap)
 // })
-
- // SET UP TWO SAMPLE RESTUARANTS
-
-// Below with a * is a multiline comment
 
 // Chi restaurants
 // const elMeson = L.marker([42.002439, -87.672339])
