@@ -103,6 +103,13 @@
 	text-decoration: underline;
 }
 
+.leaflet-popup-content h4 {
+	color: black;
+	margin: 0 0 5px;
+	padding: 0;
+
+}
+
 .leaflet-popup-content p {
 	margin: 10px 0;
 }

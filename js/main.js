@@ -390,7 +390,7 @@ class CollegeTeam extends Location {
 		.bindPopup(
 		`
 			<h2>${ this.stadiumName }</h2>
-			<h4>${ this.name } ${ this.mascot }<h4>
+			<h4>${ this.name } ${ this.mascot }</h4>
 			<p><b>Sport:</b> ${ this.sport }</p>
 			<p><b>League:</b> ${ this.league }</p>
 			<p><b>Conference:</b> ${ this.conference }</p>
