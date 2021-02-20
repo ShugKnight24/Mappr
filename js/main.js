@@ -17,7 +17,7 @@ class Location {
 	}
 
 	checkIfDowntown(){
-		if (this.name === 'Downtown' || 'Southwest'){
+		if (this.name === 'Downtown' || this.name === 'Southwest (Mexicantown)'){
 			L.marker(
 				this.position,
 				{
