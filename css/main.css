@@ -162,6 +162,35 @@
 	fill: #F51423;
 }
 
+/* Leaflet Socials */
+.social-links {
+	display: flex;
+	justify-content: space-around;
+}
+
+.social-links a {
+	text-decoration: none;
+}
+
+.facebook-icon,
+.twitter-icon,
+.instagram-icon {
+	width: 40px;
+	height: 40px;
+}
+
+.facebook-icon:hover path {
+	fill: #314887;
+}
+
+.twitter-icon:hover path:first-of-type {
+	fill: #2F9CEE;
+}
+
+.instagram-icon:hover path {
+	fill: url(#rg);
+}
+
 /* Legend Styles */
 .legend-container {
 	z-index: 999;
