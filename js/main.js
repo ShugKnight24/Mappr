@@ -889,7 +889,7 @@ function legendFilterFunct(){
 		}
 	});
 
-	legend.classList.toggle('active');
+	toggleLegendActive();
 }
 
 // Legend Logic

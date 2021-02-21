@@ -229,7 +229,7 @@
 	border-radius: 20px;
 }
 
-h4 {
+.legend-container h4 {
 	display: inline-block;
 	color: white;
 	text-decoration: underline;
