@@ -240,7 +240,11 @@ let michiganColleges = [
 		address: '5155 Gullen Mall, Detroit, MI 48202',
 		image: '',
 		mascot: 'Warriors',
-		enrollment: 17513
+		enrollment: 17513,
+		socials: true,
+		facebook: 'https://www.facebook.com/waynestateuniversity/',
+		twitter: 'https://twitter.com/waynestate',
+		instagram: 'https://www.instagram.com/waynestate/'
 	},
 	{
 		name: 'Wayne State University - School of Medicine',
@@ -248,7 +252,11 @@ let michiganColleges = [
 		address: '540 E Canfield St, Detroit, MI 48201',
 		image: '',
 		mascot: 'Warriors',
-		enrollment: 1188
+		enrollment: 1188,
+		socials: true,
+		facebook: 'https://www.facebook.com/WayneStateMedSchool/',
+		twitter: 'https://twitter.com/waynemedicine/',
+		instagram: 'https://www.instagram.com/waynemedicine/'
 	},
 	{
 		name: 'Wayne State University - Law School',
@@ -256,7 +264,11 @@ let michiganColleges = [
 		address: '471 W Palmer Ave, Detroit, MI 48202',
 		image: '',
 		mascot: 'Warriors',
-		enrollment: 349
+		enrollment: 349,
+		socials: true,
+		facebook: 'https://www.facebook.com/WayneStateLawSchool',
+		twitter: 'https://twitter.com/_WayneLaw',
+		instagram: 'https://instagram.com/waynelawschool/'
 	},
 	{
 		name: 'Wayne State University - Eugene Applebaum College of Pharmacy and Health Sciences',
@@ -264,7 +276,11 @@ let michiganColleges = [
 		address: '259 Mack Ave, Detroit, MI 48201',
 		image: '',
 		mascot: 'Warriors',
-		enrollment: 569
+		enrollment: 569,
+		socials: true,
+		facebook: 'https://www.facebook.com/WSUEACPHS',
+		twitter: 'https://www.twitter.com/wsueacphs',
+		instagram: 'https://www.instagram.com/wsueacphs'
 	}
 ]
 
