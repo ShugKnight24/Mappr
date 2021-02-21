@@ -588,7 +588,6 @@ michiganColleges.map((college, index) => {
 		college.position,
 		college.address,
 		college.image,
-		college.type,
 		college.mascot,
 		college.enrollment,
 		college.socials,
