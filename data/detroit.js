@@ -333,7 +333,12 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '(313) 899-4020',
-		website: 'https://pupuseriayrestaurantesalvadoreno.negocio.site/'
+		website: 'https://pupuseriayrestaurantesalvadoreno.negocio.site/',
+		socials: true,
+		facebook: false,
+		twitter: false,
+		instagram: false,
+		yelp: 'https://www.yelp.com/biz/pupuser%C3%ADa-y-restaurante-salvadore%C3%B1o-detroit-2'
 	},
 	{
 		name: 'Mudgie\'s Deli and Bar',
@@ -348,7 +353,12 @@ let detroitRestaurants = [
 		grubHubLink: false,
 		hours: 'Temporarily Closed',
 		phone: '(313) 961-2000',
-		website: 'http://www.mudgiesdeli.com/wp/'
+		website: 'http://www.mudgiesdeli.com/wp/',
+		socials: true,
+		facebook: 'https://www.facebook.com/mudgiesdetroit/',
+		twitter: 'https://twitter.com/Mudgies',
+		instagram: 'https://www.instagram.com/mudgies313/',
+		yelp: 'https://www.yelp.com/biz/mudgies-deli-and-wine-shop-detroit'
 	},
 	{
 		name: 'Midtown Shangri-La',
@@ -398,7 +408,12 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '(313) 974-7669',
-		website: 'http://www.midtownshangri-la.com/'
+		website: 'http://www.midtownshangri-la.com/',
+		socials: true,
+		facebook: 'https://www.facebook.com/Shangri-La-180374172893/',
+		twitter: false,
+		instagram: 'https://www.instagram.com/shangrilamidtown',
+		yelp: 'https://www.yelp.com/biz/midtown-shangri-la-detroit'
 	},
 	{
 		name: 'Rose\'s Fine Food',
@@ -448,7 +463,12 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '(313) 822-2729',
-		website: 'https://www.rosesfinefood.com/'
+		website: 'https://www.rosesfinefood.com/',
+		socials: true,
+		facebook: false,
+		twitter: false,
+		instagram: 'https://www.instagram.com/rosesfinefoodandwine/',
+		yelp: 'https://www.yelp.com/biz/roses-fine-food-detroit'
 	},
 	{
 		name: 'Mabel Gray',
@@ -498,7 +518,13 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '(248) 398-4300',
-		website: 'http://mabelgraykitchen.com/'
+		website: 'http://mabelgraykitchen.com/',
+		socials: true,
+		facebook: 'https://www.facebook.com/mabelgrayrestaurant/',
+		twitter: 'https://twitter.com/chefjamesrigato',
+		instagram: 'https://www.instagram.com/mabelgraykitchen/',
+		yelp: 'https://www.yelp.com/biz/mabel-gray-hazel-park',
+		yelp: 'https://www.yelp.com/biz/mabel-gray-hazel-park'
 	},
 	{
 		name: 'Loui\'s Pizza',
@@ -548,7 +574,12 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '(248) 547-1711',
-		website: false
+		website: false,
+		socials: true,
+		facebook: 'https://www.facebook.com/louispizza/',
+		twitter: false,
+		instagram: false,
+		yelp: 'https://www.yelp.com/biz/louis-pizza-hazel-park'
 	},
 	{
 		name: 'Too Ra Loo',
@@ -598,7 +629,12 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '(248) 453-5291',
-		website: 'http://tooraloorochester.com/'
+		website: 'http://tooraloorochester.com/',
+		socials: true,
+		facebook: 'https://www.facebook.com/TooRaLooRochester/',
+		twitter: 'https://twitter.com/loorochester',
+		instagram: 'https://www.instagram.com/too.ra.loo',
+		yelp: 'https://www.yelp.com/biz/too-ra-loo-rochester'
 	},
 	{
 		name: 'Georgio\'s Pizza & Pasta',
@@ -648,7 +684,12 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '+12486012882',
-		website: 'https://www.georgiospizzapasta.com/'
+		website: 'https://www.georgiospizzapasta.com/',
+		socials: true,
+		facebook: 'https://www.facebook.com/georgiospizzaandpasta/',
+		twitter: false,
+		instagram: 'https://www.instagram.com/georgiospizzaandpasta/',
+		yelp: 'https://www.yelp.com/biz/georgios-pizza-and-pasta-rochester'
 	},
 	{
 		name: 'Kabin Kruser\'s Oyster Bar',
@@ -698,7 +739,12 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '+12486512266',
-		website: 'http://kruseandmuerrestaurants.com/'
+		website: 'http://kruseandmuerrestaurants.com/',
+		socials: true,
+		facebook: false,
+		twitter: false,
+		instagram: false,
+		yelp: 'https://www.yelp.com/biz/kabin-krusers-oyster-bar-rochester-2'
 	},
 	{
 		name: 'Rochester Chop House & Bar',
@@ -748,7 +794,12 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '+12486512266',
-		website: 'http://kruseandmuerrestaurants.com/'
+		website: 'http://kruseandmuerrestaurants.com/',
+		socials: true,
+		facebook: false,
+		twitter: false,
+		instagram: false,
+		yelp: 'https://www.yelp.com/biz/rochester-chop-house-rochester-2'
 	},
 	{
 		name: 'O\'Connor\'s Public House',
@@ -798,7 +849,12 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '+12486082537',
-		website: 'http://oconnorsrochester.com/home'
+		website: 'http://oconnorsrochester.com/home',
+		socials: true,
+		facebook: 'https://www.facebook.com/OConnorsPubRoch/',
+		twitter: false,
+		instagram: 'https://www.instagram.com/oconnorspubroch/',
+		yelp: 'https://www.yelp.com/biz/o-connors-public-house-rochester'
 	},
 	{
 		name: 'Sumo Sushi & Seafood',
@@ -848,7 +904,12 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '+12486010104',
-		website: 'http://www.sumosushiandseafood.com/'
+		website: 'http://www.sumosushiandseafood.com/',
+		socials: true,
+		facebook: 'https://www.facebook.com/pages/category/Seafood-Restaurant/Sumo-Sushi-Seafood-1205293252842319/',
+		twitter: false,
+		instagram: 'https://www.instagram.com/restaurantsumo/',
+		yelp: 'https://www.yelp.com/biz/sumo-sushi-and-seafood-rochester'
 	},
 	{
 		name: 'Hibachi House Grill & Bar',
@@ -898,11 +959,16 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '+12482666055',
-		website: 'http://www.hibachihouserochester.com/'
+		website: 'http://www.hibachihouserochester.com/',
+		socials: true,
+		facebook: 'https://www.facebook.com/hibachester/',
+		twitter: false,
+		instagram: false,
+		yelp: 'https://www.yelp.com/biz/hibachi-house-rochester?osq=Hibachi+house'
 	},
 	{
 		name: 'Como\'s Restaurant',
-		position: [42.4608617, -83.1363673],
+		position: [42.460804, -83.134092],
 		address: '22812 Woodward Ave #100, Ferndale, MI 48220',
 		image: 'Link to image',
 		cuisineType: 'American',
@@ -948,7 +1014,12 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '+12486774439',
-		website: 'https://www.comosrestaurant.com/'
+		website: 'https://www.comosrestaurant.com/',
+		socials: true,
+		facebook: 'https://www.facebook.com/COMOsFerndale/',
+		twitter: false,
+		instagram: 'https://www.instagram.com/comosrestaurant/',
+		yelp: 'https://www.yelp.com/biz/comos-restaurant-ferndale-2?osq=comos'
 	},
 	{
 		name: 'Khom Fai',
@@ -998,7 +1069,67 @@ let detroitRestaurants = [
 				}
 		},
 		phone: '+15862477773',
-		website: 'https://www.khomfai.com/'
+		website: 'https://www.khomfai.com/',
+		socials: true,
+		facebook: 'https://www.facebook.com/khomfai/',
+		twitter: 'https://twitter.com/khomfai',
+		instagram: 'https://www.instagram.com/khomfai/?hl=en',
+		yelp: 'https://www.yelp.com/biz/khom-fai-thai-dining-experience-macomb-township'
+	},
+	{
+		name: 'Eddie\'s Gourmet',
+		position: [42.481373, -83.201822],
+		address: '25920 Greenfield Rd, Oak Park, MI 48237',
+		image: 'Link to image',
+		cuisineType: 'Coney Food',
+		specialty: 'Steaks & Pasta',
+		favDish: 'Everything',
+		delivers: false,
+		doorDashLink: false,
+		grubHubLink: false,
+		hours: {
+			0: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			1: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			2: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			3: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			4: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			5: {
+				open: 'closed',
+				close: 'closed'
+				}
+			,
+			6: {
+				open: 'closed',
+				close: 'closed'
+				}
+		},
+		phone: '+12489684060',
+		website: 'https://www.eddiesgourmetmi.com/',
+		socials: true,
+		facebook: false,
+		twitter: false,
+		instagram: 'https://www.instagram.com/eddiesgourmet/',
+		yelp: 'https://www.yelp.com/biz/eddies-gourmet-oak-park'
 	}
 ];
 
