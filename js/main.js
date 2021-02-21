@@ -704,7 +704,6 @@ michiganParks.map((park, index) => {
 		park.position,
 		park.address,
 		park.image,
-		park.type,
 		park.hours
 	);
 
