@@ -1,6 +1,7 @@
 .map-container {
 	position: relative;
 	--main-accent: #3E42F0;
+	--main-accent-hover: #1B1FEE;
 }
 
 #map {
@@ -101,6 +102,16 @@
 
 .leaflet-popup-content h2 {
 	text-decoration: underline;
+	color: var(--main-accent);
+	padding: 15px 0 0;
+}
+
+.leaflet-popup-content h2:hover {
+	color: var(--main-accent-hover);
+}
+
+.leaflet-popup-content h2 a:hover {
+	cursor: pointer;
 }
 
 .leaflet-popup-content h4 {
@@ -108,6 +119,14 @@
 	margin: 0 0 5px;
 	padding: 0;
 
+}
+
+.leaflet-popup-content a[href^="tel:"] {
+	color: var(--main-accent);
+}
+
+.leaflet-popup-content a[href^="tel:"]:hover {
+	color: var(--main-accent-hover);
 }
 
 .leaflet-popup-content p {
