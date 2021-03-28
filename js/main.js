@@ -662,18 +662,30 @@ let allLocations = [];
 
 let colleges = [];
 
-michiganColleges.map((college, index) => {
+michiganColleges.map(
+	({
+		name,
+		position,
+		address,
+		image,
+		mascot,
+		enrollment,
+		socials,
+		facebook,
+		twitter,
+		instagram
+	}, index) => {
 	colleges[index] = new College(
-		college.name,
-		college.position,
-		college.address,
-		college.image,
-		college.mascot,
-		college.enrollment,
-		college.socials,
-		college.facebook,
-		college.twitter,
-		college.instagram
+		name,
+		position,
+		address,
+		image,
+		mascot,
+		enrollment,
+		socials,
+		facebook,
+		twitter,
+		instagram
 	);
 
 	colleges[index].buildModal();
@@ -682,13 +694,20 @@ michiganColleges.map((college, index) => {
 
 let locations = [];
 
-michiganLocations.map((location, index) => {
+michiganLocations.map(
+	({
+		name,
+		position,
+		address,
+		image,
+		type
+	}, index) => {
 	locations[index] = new Location(
-		location.name,
-		location.position,
-		location.address,
-		location.image,
-		location.type
+		name,
+		position,
+		address,
+		image,
+		type
 	);
 
 	locations[index].buildModal();
@@ -697,14 +716,20 @@ michiganLocations.map((location, index) => {
 
 let parks = [];
 
-michiganParks.map((park, index) => {
-
+michiganParks.map(
+	({
+		name,
+		position,
+		address,
+		image,
+		hours
+	}, index) => {
 	parks[index] = new Park(
-		park.name,
-		park.position,
-		park.address,
-		park.image,
-		park.hours
+		name,
+		position,
+		address,
+		image,
+		hours
 	);
 
 	parks[index].buildModal();
@@ -713,45 +738,70 @@ michiganParks.map((park, index) => {
 
 let beaches = [];
 
-michiganBeaches.map((beach, index) => {
-
+michiganBeaches.map(
+	({
+		name,
+		position,
+		address,
+		image,
+		type,
+		hours
+	}, index) => {
 	beaches[index] = new Beach(
-		beach.name,
-		beach.position,
-		beach.address,
-		beach.image,
-		beach.type,
-		beach.hours
+		name,
+		position,
+		address,
+		image,
+		type,
+		hours
 	);
 
 	beaches[index].buildModal();
 	allLocations.push(beaches[index]);
 });
 
-
 let restaurants = [];
 
-detroitRestaurants.map((restaurant, index) => {
-
+detroitRestaurants.map(
+	({
+		name,
+		position,
+		address,
+		image,
+		cuisineType,
+		specialty,
+		favDish,
+		delivers,
+		doorDashLink,
+		grubHubLink,
+		hours,
+		phone,
+		website,
+		socials,
+		facebook,
+		twitter,
+		instagram,
+		yelp
+	}, index) => {
 	restaurants[index] = new Restaurant(
-		restaurant.name,
-		restaurant.position,
-		restaurant.address,
-		restaurant.image,
-		restaurant.cuisineType,
-		restaurant.specialty,
-		restaurant.favDish,
-		restaurant.delivers,
-		restaurant.doorDashLink,
-		restaurant.grubHubLink,
-		restaurant.hours,
-		restaurant.phone,
-		restaurant.website,
-		restaurant.socials,
-		restaurant.facebook,
-		restaurant.twitter,
-		restaurant.instagram,
-		restaurant.yelp
+		name,
+		position,
+		address,
+		image,
+		cuisineType,
+		specialty,
+		favDish,
+		delivers,
+		doorDashLink,
+		grubHubLink,
+		hours,
+		phone,
+		website,
+		socials,
+		facebook,
+		twitter,
+		instagram,
+		yelp
 	);
 
 	restaurants[index].buildModal();
@@ -761,17 +811,28 @@ detroitRestaurants.map((restaurant, index) => {
 
 let sportsTeams = [];
 
-detroitSportsTeams.map((team, index) => {
+detroitSportsTeams.map(
+	({
+		name,
+		position,
+		address,
+		image,
+		sport,
+		league,
+		stadiumName,
+		currentStadium,
+		owner
+	}, index) => {
 	sportsTeams[index] = new SportsTeam(
-		team.name,
-		team.position,
-		team.address,
-		team.image,
-		team.sport,
-		team.league,
-		team.stadiumName,
-		team.currentStadium,
-		team.owner
+		name,
+		position,
+		address,
+		image,
+		sport,
+		league,
+		stadiumName,
+		currentStadium,
+		owner
 	);
 
 	sportsTeams[index].buildModal();
@@ -780,17 +841,26 @@ detroitSportsTeams.map((team, index) => {
 
 let collegeTeams = [];
 
-michiganCollegeTeams.map((team, index) => {
-
+michiganCollegeTeams.map(
+	({
+		name,
+		position,
+		address,
+		image,
+		sport,
+		conference,
+		stadiumName,
+		mascot
+	}, index) => {
 	collegeTeams[index] = new CollegeTeam(
-		team.name,
-		team.position,
-		team.address,
-		team.image,
-		team.sport,
-		team.conference,
-		team.stadiumName,
-		team.mascot
+		name,
+		position,
+		address,
+		image,
+		sport,
+		conference,
+		stadiumName,
+		mascot
 	);
 
 	collegeTeams[index].buildModal();
@@ -799,16 +869,24 @@ michiganCollegeTeams.map((team, index) => {
 
 let coffeeShops = [];
 
-detroitCoffee.map((coffee, index) => {
-
+detroitCoffee.map(
+	({
+		name,
+		position,
+		address,
+		image,
+		hours,
+		phone,
+		website,
+	}, index) => {
 	coffeeShops[index] = new CoffeeShop(
-		coffee.name,
-		coffee.position,
-		coffee.address,
-		coffee.image,
-		coffee.hours,
-		coffee.phone,
-		coffee.website,
+		name,
+		position,
+		address,
+		image,
+		hours,
+		phone,
+		website
 	);
 
 	coffeeShops[index].buildModal();
