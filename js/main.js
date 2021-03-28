@@ -60,6 +60,35 @@ class Location {
 	}
 }
 
+class City {
+	constructor(
+		city,
+		state,
+		position
+	){
+		this.city = city;
+		this.state = state;
+		this.position = position;
+		this.type = 'City';
+	}
+
+	buildModal(){
+		L.marker(
+			this.position,
+			{
+				icon: cityIcon
+			}
+		)
+		.bindPopup(
+			`
+				<h2>${ this.type } of ${ this.city }, ${ this.state }</h2>
+			`
+		)
+		.openPopup()
+		.addTo(markers);
+	}
+}
+
 class CoffeeShop extends Location {
 	constructor(
 		name,
@@ -919,6 +948,41 @@ function toggleLegendActive(){
 	legendOpen.classList.toggle('active');
 	legendClose.classList.toggle('active');
 	legend.classList.toggle('active');
+}
+
+/*
+	Build Cities from external JSON
+	Props to Miserlou - Rich Jones - https://github.com/Miserlou
+	For building the list
+*/ 
+const externalCities = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+const cities = [];
+const cityList = [];
+
+fetch(externalCities)
+	.then(res => res.json())
+	.then(data => {
+		cities.push(...data);
+		buildCities(cities)
+	})
+
+
+function buildCities(cityArray){
+	cityArray.map(({
+		city,
+		state,
+		latitude,
+		longitude
+	}, index) => {
+		cityList[index] = new City(
+			city,
+			state,
+			[latitude, longitude]
+		)
+		cityList[index].buildModal()
+		allLocations.push(cityList[index])
+	})
 }
 
 // listORestaurants.map(restaurant => {
