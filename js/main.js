@@ -779,6 +779,23 @@ function toggleLegendActive(){
 	legend.classList.toggle('active');
 }
 
+// TODO: refactor to include a reset button
+// similar to what's required in filter list dropdown
+legendItems.forEach(item => {
+	legend.innerHTML += `
+		<p data-filter="${item.filter}">
+			<span>
+				<img
+					src="${item.icon}"
+					alt="Click to filter by ${item.alt}"
+					role="button"
+				>
+			</span>
+			<span> - ${item.text}</span>
+		</p>
+	`;
+});
+
 /*
 	Build Cities from external JSON
 	Props to Miserlou - Rich Jones - https://github.com/Miserlou

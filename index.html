@@ -46,70 +46,13 @@
 					<i class="fas fa-plus-circle"></i>
 				</span>
 			</span>
+			<!-- Think of better way to close that doesn't shift on open -->
 			<span class="legend-close">
 				<span class="icon minus-icon">
 					<i class="fas fa-minus-circle"></i>
 				</span>
 			</span>
-			<div class="legend">
-				<!-- TODO: This is a lot, messy and repetative - DRY out / create dynamically -->
-				<p data-filter="Beach">
-					<span>
-						<img src="img/icons/beach_chair_pin.png" alt="Beach Chair - Beaches Icon">
-					</span>
-					<span>
-						- Beaches
-					</span>
-				</p>
-				<p data-filter="City">
-					<span>
-						<img src="img/icons/leaf-green.png" alt="Green Leaf - City Icon">
-					</span>
-					<span>
-						- Cities
-					</span>
-				</p>
-				<p data-filter="Coffee Shop">
-					<span>
-						<img src="img/icons/marker_icon.png" alt="Blue Marker -  Coffeeshops Icon">
-					</span>
-					<span>
-						- Coffee Shops
-					</span>
-				</p>
-				<p data-filter="Neighborhood">
-					<span>
-						<img src="img/icons/leaf-red.png" alt="Red Leaf - Neighborhoods Icon">
-					</span>
-					<span>
-						- Neighborhoods
-					</span>
-				</p>
-				<p data-filter="Park">
-					<span>
-						<img src="img/icons/park_pin.png" alt="Tree Marker -  Park Icon">
-					</span>
-					<span>
-						- Parks
-					</span>
-				</p>
-				<p data-filter="Restaurant">
-					<span>
-						<img src="img/icons/marker_icon.png" alt="Blue Marker - Restaurants & Coffeeshops Icon">
-					</span>
-					<span>
-						- Restaurants
-					</span>
-				</p>
-				<p data-filter="Sports Team">
-					<span>
-						<img src="img/icons/marker_icon.png" alt="Blue Marker - Sports Team Icon">
-					</span>
-					<span>
-						- Sports Teams
-					</span>
-				</p>
-			</div>
+			<div class="legend"></div>
 		</div>
 	</main>
 	<script
@@ -119,6 +62,7 @@
 	>
 	</script>
 	<script src="data/detroit.js"></script>
+	<script src="data/legend.js"></script>
 	<script src="js/svgIcons.js"></script>
 	<script src="js/mapIcons.js"></script>
 	<script src="js/main.js"></script>
