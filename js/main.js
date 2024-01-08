@@ -589,7 +589,8 @@ myMap.attributionControl.setPrefix('');
 // Load basemap
 const myBasemap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
-	attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+	noWrap: true
 });
 
 // Add basemap to map id
