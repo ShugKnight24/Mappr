@@ -1,15 +1,9 @@
 'use strict';
 
 // Classes
-class Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		type
-	){
-		this.name = name;
+// TODO: Refactor to abstract use of createPopupContent() pattern?
+// at that point most of the classes would be pretty much the same aside from subtle differences
+// where a more generic class might be better... something to think on
 class Place {
 	constructor(position) {
 		this.position = position;
@@ -22,163 +16,79 @@ class Place {
 			.addTo(markers);
 	}
 }
+
+class Location extends Place {
+	constructor(name, position, address, image, type) {
+		super(position);
+		this.name = name;
 		this.address = address;
 		this.image = image;
 		this.type = type;
 	}
 
-	checkIfDowntown(){
+	createDowntownMarker() {
 		if (this.name === 'Downtown' || this.name === 'Southwest (Mexicantown)'){
-			L.marker(
-				this.position,
-				{
-					icon: neighborhoodIcon
-				}
-			)
-			.bindPopup(
-				`
-					<h2>${ this.name } Detroit</h2>
-				`
-			)
-			.openPopup()
-			.addTo(markers);
-
+			this.createMarker(neighborhoodIcon, `${ this.name } Detroit`);
 			return true;
 		}
+		return false;
 	}
 
 	buildModal(){
-
-		if (this.checkIfDowntown()){
-			this.checkIfDowntown();
-		} else {
+		let isDowntown = this.createDowntownMarker();
+		if (!isDowntown) {
 			let iconType = this.type === 'Neighborhood' ? neighborhoodIcon : cityIcon;
-
-			L.marker(
-				this.position,
-				{
-					icon: iconType
-				}
-			)
-			.bindPopup(
-				`
-					<h2>${ this.type } of ${ this.name }</h2>
-				`
-			)
-			.openPopup()
-			.addTo(markers);
+			this.createMarker(iconType, `${this.type} of ${this.name}`);
 		}
 	}
 }
 
-class City {
-	constructor(
-		city,
-		state,
-		position
-	){
+class City extends Place {
+	constructor(city, state, position){
+		super(position);
 		this.city = city;
 		this.state = state;
-		this.position = position;
 		this.type = 'City';
 	}
 
 	buildModal(){
-		L.marker(
-			this.position,
-			{
-				icon: cityIcon
-			}
-		)
-		.bindPopup(
-			`
-				<h2>${ this.type } of ${ this.city }, ${ this.state }</h2>
-			`
-		)
-		.openPopup()
-		.addTo(markers);
+		this.createMarker(cityIcon, `${this.type} of ${this.city}, ${this.state}`);
 	}
 }
 
 class CoffeeShop extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		hours,
-		phone,
-		website
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
+	constructor(name, position, address, image, hours, phone, website){
+		super(name, position, address, image);
 		this.type = 'Coffee Shop';
 		this.hours = hours;
 		this.phone = phone;
 		this.website = website;
 	}
 
-	buildModal(){
-
-		L.marker(this.position)
-		.bindPopup(
-		`
-			${
-				this.website
-				?
-				`<a href=${ this.website }
-					rel="noopener noreferrer"
-					target="_blank"
-				>
-					<h2>${ this.name }</h2>
-				</a>`
-				:
-				`<h2>${ this.name }</h2>`
-			}
+	createPopupContent() {
+		const name = this.website
+			? `<a href=${ this.website } rel="noopener noreferrer" target="_blank"><h2>${ this.name }</h2></a>`
+			: `<h2>${ this.name }</h2>`;
+		const phone = this.phone
+			? `<p><b>Phone #:</b><a href=tel:${ this.phone }>${ this.phone }</a></p>`
+			: '';
+		return `
+			${name}
 			<p><b>Type:</b> ${ this.type }</p>
 			<p><b>Address:</b> ${ this.address }</p>
-			${
-				this.phone
-				?
-				`<p><b>Phone #:</b>
-					<a href=tel:${ this.phone }
-					>
-					${ this.phone }
-					</a>
-				</p>`
-				:
-				``
-			}
-		`
-		)
-		.openPopup()
-		.addTo(markers)
+			${phone}
+		`;
+	}
+
+	buildModal() {
+		let popupContent = this.createPopupContent();
+		this.createMarker(cityIcon, popupContent);
 	}
 }
 
 class College extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		mascot,
-		enrollment,
-		socials,
-		facebook,
-		twitter,
-		instagram
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
+	constructor(name, position, address, image, mascot, enrollment, socials, facebook, twitter, instagram){
+		super(name, position, address, image);
 		this.type = 'College';
 		this.mascot = mascot;
 		this.enrollment = enrollment;
@@ -188,134 +98,69 @@ class College extends Location {
 		this.instagram = instagram;
 	}
 
-	buildModal(){
-		L.marker(this.position)
-		.bindPopup(
-		`
+	createPopupContent() {
+		// TODO: Further refactor to depend on each individual social media link
+		let socialContent = this.socials ? `
+			<div class="social-links">
+				<a href=${ this.facebook } rel="noopener noreferrer" target="_blank">${ fbIcon }</a>
+				<a href=${ this.twitter } rel="noopener noreferrer" target="_blank">${ twitterIcon }</a>
+				<a href=${ this.instagram } rel="noopener noreferrer" target="_blank">${ instagramIcon }${ instagramGradientIcon }</a>
+			</div>
+		` : '';
+		return (`
 			<h2>${ this.name }</h2>
 			<p><b>Address:</b> ${ this.address }</p>
 			<p><b>Mascot:</b> ${ this.mascot }</p>
 			<p><b>Type:</b> ${ this.type }</p>
 			<p><b>Enrollment #'s:</b> ${ this.enrollment }</p>
-			${
-				this.socials
-				?
-				`<div class="social-links">
-					<a href=${ this.facebook } rel="noopener noreferrer"
-					target="_blank">
-						${ fbIcon }
-					</a>
-					<a href=${ this.twitter } rel="noopener noreferrer"
-					target="_blank">
-						${ twitterIcon }
-					</a>
-					<a href=${ this.instagram } rel="noopener noreferrer"
-					target="_blank">
-						${ instagramIcon }
-						${ instagramGradientIcon }
-					</a>
-				</div>`
-				:
-				``
-			}
-		`
-		)
-		.openPopup()
-		.addTo(markers)
+			${socialContent}
+		`);
+	}
+
+	buildModal() {
+		let popupContent = this.createPopupContent();
+		this.createMarker(cityIcon, popupContent);
 	}
 }
 
+// Museum, Park, Beach pretty much the same - create a more generic class?
 class Museum extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		hours
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
+	constructor(name, position, address, image, hours){
+		super(name, position, address, image);
 		this.type = 'Museum';
 		this.hours = hours;
 	}
 }
 
 class Park extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		hours
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
+	constructor(name, position, address, image, hours){
+		super(name, position, address, image);
 		this.type = 'Park';
 		this.hours = hours;
 	}
 
-	buildModal(){
-
-		L.marker(
-			this.position,
-			{
-				icon: parkIcon
-			}
-		)
-		.bindPopup(
-			`
-				<h2>${ this.name }</h2>
-			`
-		)
-		.openPopup()
-		.addTo(markers);
+	buildModal() {
+		let popupContent = `<h2>${ this.name }</h2>`;
+		this.createMarker(parkIcon, popupContent);
 	}
 }
 
 class Beach extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		hours
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
+	constructor(name, position, address, image, hours){
+		super(name, position, address, image);
 		this.type = 'Beach';
 		this.hours = hours;
 	}
 
-	buildModal(){
-
-		L.marker(
-			this.position,
-			{
-				icon: beachIcon
-			}
-		)
-		.bindPopup(
-			`
-				<h2>${ this.name }</h2>
-			`
-		)
-		.openPopup()
-		.addTo(markers);
+	buildModal() {
+		let popupContent = `<h2>${ this.name }</h2>`;
+		this.createMarker(beachIcon, popupContent);
 	}
 }
 
+// TODO: Still yet to be refactored
+// Want to make this more like the other classes yet it would be messy
+// Want to make this more unique and elegant
 class Restaurant extends Location {
 	constructor(
 		name,
@@ -491,6 +336,7 @@ class Restaurant extends Location {
 		.addTo(markers)
 	}
 
+	// TODO: Properly implement this
 	checkIfOpen(){
 		let currentTime = new Date().getTime();
 
@@ -498,23 +344,13 @@ class Restaurant extends Location {
 	}
 }
 
+// TODO: Add icon based off of sport
+// TODO: Further refactor to make similar to above changes using createPopupContent() pattern
+// TODO: Not a fan of the current  collegeTeam / sportsTeam split - find a better way to do this
+// generic team class?
 class CollegeTeam extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		sport,
-		conference,
-		stadiumName,
-		mascot
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
+	constructor(name, position, address, image, sport, conference, stadiumName, mascot){
+		super(name, position, address, image);
 		this.type = 'College Team';
 		this.sport = sport;
 		this.league = 'NCAA';
@@ -525,8 +361,7 @@ class CollegeTeam extends Location {
 
 	buildModal(){
 		L.marker(this.position)
-		.bindPopup(
-		`
+		.bindPopup(`
 			<h2>${ this.stadiumName }</h2>
 			<h4>${ this.name } ${ this.mascot }</h4>
 			<p><b>Sport:</b> ${ this.sport }</p>
@@ -534,33 +369,15 @@ class CollegeTeam extends Location {
 			<p><b>Conference:</b> ${ this.conference }</p>
 			<p><b>Type:</b> ${ this.type }</p>
 			<p><b>Address:</b> ${ this.address }</p>
-		`
-		)
+		`)
 		.openPopup()
 		.addTo(markers)
 	}
 }
 
 class SportsTeam extends CollegeTeam {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		sport,
-		league,
-		stadiumName,
-		currentStadium,
-		owner
-	){
-		super(
-			name,
-			position,
-			address,
-			image,
-			sport,
-			league,
-			stadiumName
+	constructor(name, position, address, image, sport, league, stadiumName, currentStadium, owner){
+		super(name, position, address, image, sport, league, stadiumName
 		);
 		this.type = 'Sports Team';
 		this.sport = sport;
@@ -572,8 +389,7 @@ class SportsTeam extends CollegeTeam {
 
 	buildModal(){
 		L.marker(this.position)
-		.bindPopup(
-		`
+		.bindPopup(`
 			<h2>${ this.stadiumName }</h2>
 			<h4>${ this.name }<h4>
 			<p><b>Sport:</b> ${ this.sport }</p>
@@ -582,8 +398,7 @@ class SportsTeam extends CollegeTeam {
 			<p><b>Type:</b> ${ this.type }</p>
 			<p><b>Address:</b> ${ this.address }</p>
 			<p><b>Owner:</b> ${ this.owner }</p>
-		`
-		)
+		`)
 		.openPopup()
 		.addTo(markers)
 	}
