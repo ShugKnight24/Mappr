@@ -10,7 +10,18 @@ class Location {
 		type
 	){
 		this.name = name;
+class Place {
+	constructor(position) {
 		this.position = position;
+	}
+
+	createMarker(icon, popupContent) {
+		L.marker(this.position, { icon: icon })
+			.bindPopup(`<h2>${popupContent}</h2>`)
+			.openPopup()
+			.addTo(markers);
+	}
+}
 		this.address = address;
 		this.image = image;
 		this.type = type;
