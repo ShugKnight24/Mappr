@@ -583,6 +583,8 @@ class SportsTeam extends CollegeTeam {
 
 // Map Setup
 const myMap = L.map('map');
+// Remove Leaflet Attribution - https://groups.google.com/g/leaflet-js/c/fA6M7fbchOs/m/JTNVhqdc7JcJ
+myMap.attributionControl.setPrefix('');
 
 // Load basemap
 const myBasemap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
