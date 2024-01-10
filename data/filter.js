@@ -1,4 +1,10 @@
-const legendItems = [
+const filterItems = [
+  {
+    filter: 'All',
+    icon: 'img/icons/marker_icon.png',
+    alt: 'All - Blue Marker Icon',
+    text: 'All'
+  },
 	{
     filter: 'Beach',
     icon: 'img/icons/beach_chair_pin.png',
@@ -13,8 +19,8 @@ const legendItems = [
   },
 	{
     filter: 'Coffee Shop',
-    icon: 'img/icons/marker_icon.png',
-    alt: 'Coffeeshops - Blue Marker Icon',
+    icon: 'img/icons/coffee_cup.png',
+    alt: 'Coffeeshops - Coffee Cup Icon',
     text: 'Coffee Shops'
   },
 	{

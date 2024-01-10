@@ -688,12 +688,22 @@ detroitCoffee.map(
 	allLocations.push(coffeeShops[index]);
 });
 
-const filters = document.querySelectorAll('.filter');
+const filterList = document.querySelector('.filter-list ul');
+
+filterItems.forEach(item => {
+	filterList.innerHTML += `
+		<li class="filter" data-filter="${item.filter}">${item.text}</li>
+	`;
+});
+
+const filters = document.querySelectorAll('.filter-list ul li');
 
 filters.forEach(function(filter){
 	filter.addEventListener('click', setFilter);
 });
 
+// TODO: Refactor same as legend filter now
+// by default 'all' should be active
 function setFilter(){
 	const filteredType = this.getAttribute('data-filter');
 
@@ -703,15 +713,19 @@ function setFilter(){
 
 	markers.clearLayers();
 
-	allLocations.filter(function(item){
-		if (item.type === 'College Team'){
-			item.type = 'Sports Team'
-		}
+	if (filteredType === 'All') {
+		allLocations.forEach(item => item.buildModal());
+	} else {
+		allLocations.filter(function(item){
+			if (item.type === 'College Team'){
+				item.type = 'Sports Team'
+			}
 
-		if (item.type === filteredType){
-			item.buildModal();
-		}
-	});
+			if (item.type === filteredType){
+				item.buildModal();
+			}
+		});
+	}
 }
 
 function removeFilteredActive(){
@@ -721,14 +735,14 @@ function removeFilteredActive(){
 }
 
 // Ensure filter sub nav appears properly
-const actions = document.querySelector('.actions'),
-filterList = document.querySelector('.filter-list');
+const actions = document.querySelector('.actions');
+const filterParent = document.querySelector('.filter-list');
 
 actions.addEventListener('mouseenter', addActive);
 
 function addActive(){
 	setTimeout(function() {
-		filterList.classList.add('active');
+		filterParent.classList.add('active');
 	}, 250);
 }
 
@@ -736,33 +750,8 @@ actions.addEventListener('mouseleave', removeActive);
 
 function removeActive(){
 	setTimeout(function() {
-		filterList.classList.remove('active');
+		filterParent.classList.remove('active');
 	}, 250);
-}
-
-// Legend Filter
-const legendFilter = document.querySelectorAll('.legend p');
-
-legendFilter.forEach(function(filter){
-	filter.addEventListener('click', legendFilterFunct);
-});
-
-function legendFilterFunct(){
-	const filteredType = this.getAttribute('data-filter');
-
-	markers.clearLayers();
-
-	allLocations.filter(function(item){
-		if (item.type === 'College Team'){
-			item.type = 'Sports Team'
-		}
-
-		if (item.type === filteredType){
-			item.buildModal();
-		}
-	});
-
-	toggleLegendActive();
 }
 
 // Legend Logic
@@ -779,9 +768,8 @@ function toggleLegendActive(){
 	legend.classList.toggle('active');
 }
 
-// TODO: refactor to include a reset button
-// similar to what's required in filter list dropdown
-legendItems.forEach(item => {
+// TODO: Add an active class to the legend filter
+filterItems.forEach(item => {
 	legend.innerHTML += `
 		<p data-filter="${item.filter}">
 			<span>
@@ -795,6 +783,35 @@ legendItems.forEach(item => {
 		</p>
 	`;
 });
+
+// Legend Filter
+const legendFilter = document.querySelectorAll('.legend p');
+
+legendFilter.forEach(function(filter){
+	filter.addEventListener('click', filterByLegend);
+});
+
+function filterByLegend(){
+	const filteredType = this.getAttribute('data-filter');
+
+	markers.clearLayers();
+
+	if (filteredType === 'All') {
+		allLocations.forEach(item => item.buildModal());
+	} else {
+		allLocations.filter(function(item){
+			if (item.type === 'College Team'){
+				item.type = 'Sports Team'
+			}
+
+			if (item.type === filteredType){
+				item.buildModal();
+			}
+		});
+	}
+
+	toggleLegendActive();
+}
 
 /*
 	Build Cities from external JSON
