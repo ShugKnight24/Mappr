@@ -5,9 +5,12 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="css/normalize.css">
-	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-	integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-	crossorigin=""/>
+	<link
+		rel="stylesheet"
+		href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+		integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+		crossorigin=""
+	/>
 	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.15.2/css/all.css">
 	<link rel="stylesheet" href="css/main.css">
 	<title>Mappr</title>
@@ -20,17 +23,7 @@
 			<a class="filter-button">Filter By &#9662;</a>
 		</div>
 		<div class="filter-list">
-			<ul>
-				<li class="filter" data-filter="Beach">Beaches</li>
-				<li class="filter" data-filter="City">Cities</li>
-				<li class="filter" data-filter="Coffee Shop">Coffee Shops</li>
-				<li class="filter" data-filter="College">Colleges</li>
-				<li class="filter" data-filter="Museum">Museums</li>
-				<li class="filter" data-filter="Neighborhood">Neighborhoods</li>
-				<li class="filter" data-filter="Park">Parks</li>
-				<li class="filter" data-filter="Restaurant">Restaurants</li>
-				<li class="filter" data-filter="Sports Team">Sports Teams</li>
-			</ul>
+			<ul></ul>
 		</div>
 
 		<div id="map"></div>
@@ -42,75 +35,23 @@
 					<i class="fas fa-plus-circle"></i>
 				</span>
 			</span>
+			<!-- Think of better way to close that doesn't shift on open -->
 			<span class="legend-close">
 				<span class="icon minus-icon">
 					<i class="fas fa-minus-circle"></i>
 				</span>
 			</span>
-			<div class="legend">
-				<p data-filter="Beach">
-					<span>
-						<img src="img/icons/beach_chair_pin.png" alt="Beach Chair - Beaches Icon">
-					</span>
-					<span>
-						- Beaches
-					</span>
-				</p>
-				<p data-filter="City">
-					<span>
-						<img src="img/icons/leaf-green.png" alt="Green Leaf - City Icon">
-					</span>
-					<span>
-						- Cities
-					</span>
-				</p>
-				<p data-filter="Coffee Shop">
-					<span>
-						<img src="img/icons/marker_icon.png" alt="Blue Marker -  Coffeeshops Icon">
-					</span>
-					<span>
-						- Coffee Shops
-					</span>
-				</p>
-				<p data-filter="Neighborhood">
-					<span>
-						<img src="img/icons/leaf-red.png" alt="Red Leaf - Neighborhoods Icon">
-					</span>
-					<span>
-						- Neighborhoods
-					</span>
-				</p>
-				<p data-filter="Park">
-					<span>
-						<img src="img/icons/park_pin.png" alt="Tree Marker -  Park Icon">
-					</span>
-					<span>
-						- Parks
-					</span>
-				</p>
-				<p data-filter="Restaurant">
-					<span>
-						<img src="img/icons/marker_icon.png" alt="Blue Marker - Restaurants & Coffeeshops Icon">
-					</span>
-					<span>
-						- Restaurants
-					</span>
-				</p>
-				<p data-filter="Sports Team">
-					<span>
-						<img src="img/icons/marker_icon.png" alt="Blue Marker - Sports Team Icon">
-					</span>
-					<span>
-						- Sports Teams
-					</span>
-				</p>
-			</div>
+			<div class="legend"></div>
 		</div>
 	</main>
-	<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-	integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-	crossorigin=""></script>
+	<script
+		src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+		integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+		crossorigin=""
+	>
+	</script>
 	<script src="data/detroit.js"></script>
+	<script src="data/filter.js"></script>
 	<script src="js/svgIcons.js"></script>
 	<script src="js/mapIcons.js"></script>
 	<script src="js/main.js"></script>

@@ -1,173 +1,94 @@
 'use strict';
 
 // Classes
-class Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		type
-	){
-		this.name = name;
+// TODO: Refactor to abstract use of createPopupContent() pattern?
+// at that point most of the classes would be pretty much the same aside from subtle differences
+// where a more generic class might be better... something to think on
+class Place {
+	constructor(position) {
 		this.position = position;
+	}
+
+	createMarker(icon, popupContent) {
+		L.marker(this.position, { icon: icon })
+			.bindPopup(`<h2>${popupContent}</h2>`)
+			.openPopup()
+			.addTo(markers);
+	}
+}
+
+class Location extends Place {
+	constructor(name, position, address, image, type) {
+		super(position);
+		this.name = name;
 		this.address = address;
 		this.image = image;
 		this.type = type;
 	}
 
-	checkIfDowntown(){
+	createDowntownMarker() {
 		if (this.name === 'Downtown' || this.name === 'Southwest (Mexicantown)'){
-			L.marker(
-				this.position,
-				{
-					icon: neighborhoodIcon
-				}
-			)
-			.bindPopup(
-				`
-					<h2>${ this.name } Detroit</h2>
-				`
-			)
-			.openPopup()
-			.addTo(markers);
-
+			this.createMarker(neighborhoodIcon, `${ this.name } Detroit`);
 			return true;
 		}
+		return false;
 	}
 
 	buildModal(){
-
-		if (this.checkIfDowntown()){
-			this.checkIfDowntown();
-		} else {
-			let iconType = this.type === 'Neighborhood' ? neighborhoodIcon : cityIcon;
-
-			L.marker(
-				this.position,
-				{
-					icon: iconType
-				}
-			)
-			.bindPopup(
-				`
-					<h2>${ this.type } of ${ this.name }</h2>
-				`
-			)
-			.openPopup()
-			.addTo(markers);
+		const isDowntown = this.createDowntownMarker();
+		if (!isDowntown) {
+			const iconType = this.type === 'Neighborhood' ? neighborhoodIcon : cityIcon;
+			this.createMarker(iconType, `${this.type} of ${this.name}`);
 		}
 	}
 }
 
-class City {
-	constructor(
-		city,
-		state,
-		position
-	){
+class City extends Place {
+	constructor(city, state, position){
+		super(position);
 		this.city = city;
 		this.state = state;
-		this.position = position;
 		this.type = 'City';
 	}
 
 	buildModal(){
-		L.marker(
-			this.position,
-			{
-				icon: cityIcon
-			}
-		)
-		.bindPopup(
-			`
-				<h2>${ this.type } of ${ this.city }, ${ this.state }</h2>
-			`
-		)
-		.openPopup()
-		.addTo(markers);
+		this.createMarker(cityIcon, `${this.type} of ${this.city}, ${this.state}`);
 	}
 }
 
 class CoffeeShop extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		hours,
-		phone,
-		website
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
+	constructor(name, position, address, image, hours, phone, website){
+		super(name, position, address, image);
 		this.type = 'Coffee Shop';
 		this.hours = hours;
 		this.phone = phone;
 		this.website = website;
 	}
 
-	buildModal(){
-
-		L.marker(this.position)
-		.bindPopup(
-		`
-			${
-				this.website
-				?
-				`<a href=${ this.website }
-					rel="noopener noreferrer"
-					target="_blank"
-				>
-					<h2>${ this.name }</h2>
-				</a>`
-				:
-				`<h2>${ this.name }</h2>`
-			}
+	createPopupContent() {
+		const name = this.website
+			? `<a href=${ this.website } rel="noopener noreferrer" target="_blank"><h2>${ this.name }</h2></a>`
+			: `<h2>${ this.name }</h2>`;
+		const phone = this.phone
+			? `<p><b>Phone #:</b><a href=tel:${ this.phone }>${ this.phone }</a></p>`
+			: '';
+		return `
+			${name}
 			<p><b>Type:</b> ${ this.type }</p>
 			<p><b>Address:</b> ${ this.address }</p>
-			${
-				this.phone
-				?
-				`<p><b>Phone #:</b>
-					<a href=tel:${ this.phone }
-					>
-					${ this.phone }
-					</a>
-				</p>`
-				:
-				``
-			}
-		`
-		)
-		.openPopup()
-		.addTo(markers)
+			${phone}
+		`;
+	}
+
+	buildModal() {
+		const popupContent = this.createPopupContent();
+		this.createMarker(coffeeIcon, popupContent);
 	}
 }
 
 class College extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		mascot,
-		enrollment,
-		socials,
-		facebook,
-		twitter,
-		instagram
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
+	constructor(name, position, address, image, mascot, enrollment, socials, facebook, twitter, instagram){
+		super(name, position, address, image);
 		this.type = 'College';
 		this.mascot = mascot;
 		this.enrollment = enrollment;
@@ -177,134 +98,69 @@ class College extends Location {
 		this.instagram = instagram;
 	}
 
-	buildModal(){
-		L.marker(this.position)
-		.bindPopup(
-		`
+	createPopupContent() {
+		// TODO: Further refactor to depend on each individual social media link
+		const socialContent = this.socials ? `
+			<div class="social-links">
+				<a href=${ this.facebook } rel="noopener noreferrer" target="_blank">${ fbIcon }</a>
+				<a href=${ this.twitter } rel="noopener noreferrer" target="_blank">${ twitterIcon }</a>
+				<a href=${ this.instagram } rel="noopener noreferrer" target="_blank">${ instagramIcon }${ instagramGradientIcon }</a>
+			</div>
+		` : '';
+		return (`
 			<h2>${ this.name }</h2>
 			<p><b>Address:</b> ${ this.address }</p>
 			<p><b>Mascot:</b> ${ this.mascot }</p>
 			<p><b>Type:</b> ${ this.type }</p>
 			<p><b>Enrollment #'s:</b> ${ this.enrollment }</p>
-			${
-				this.socials
-				?
-				`<div class="social-links">
-					<a href=${ this.facebook } rel="noopener noreferrer"
-					target="_blank">
-						${ fbIcon }
-					</a>
-					<a href=${ this.twitter } rel="noopener noreferrer"
-					target="_blank">
-						${ twitterIcon }
-					</a>
-					<a href=${ this.instagram } rel="noopener noreferrer"
-					target="_blank">
-						${ instagramIcon }
-						${ instagramGradientIcon }
-					</a>
-				</div>`
-				:
-				``
-			}
-		`
-		)
-		.openPopup()
-		.addTo(markers)
+			${socialContent}
+		`);
+	}
+
+	buildModal() {
+		const popupContent = this.createPopupContent();
+		this.createMarker(cityIcon, popupContent);
 	}
 }
 
+// Museum, Park, Beach pretty much the same - create a more generic class?
 class Museum extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		hours
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
+	constructor(name, position, address, image, hours){
+		super(name, position, address, image);
 		this.type = 'Museum';
 		this.hours = hours;
 	}
 }
 
 class Park extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		hours
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
+	constructor(name, position, address, image, hours){
+		super(name, position, address, image);
 		this.type = 'Park';
 		this.hours = hours;
 	}
 
-	buildModal(){
-
-		L.marker(
-			this.position,
-			{
-				icon: parkIcon
-			}
-		)
-		.bindPopup(
-			`
-				<h2>${ this.name }</h2>
-			`
-		)
-		.openPopup()
-		.addTo(markers);
+	buildModal() {
+		const popupContent = `<h2>${ this.name }</h2>`;
+		this.createMarker(parkIcon, popupContent);
 	}
 }
 
 class Beach extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		hours
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
+	constructor(name, position, address, image, hours){
+		super(name, position, address, image);
 		this.type = 'Beach';
 		this.hours = hours;
 	}
 
-	buildModal(){
-
-		L.marker(
-			this.position,
-			{
-				icon: beachIcon
-			}
-		)
-		.bindPopup(
-			`
-				<h2>${ this.name }</h2>
-			`
-		)
-		.openPopup()
-		.addTo(markers);
+	buildModal() {
+		const popupContent = `<h2>${ this.name }</h2>`;
+		this.createMarker(beachIcon, popupContent);
 	}
 }
 
+// TODO: Still yet to be refactored
+// Want to make this more like the other classes yet it would be messy
+// Want to make this more unique and elegant
 class Restaurant extends Location {
 	constructor(
 		name,
@@ -354,6 +210,7 @@ class Restaurant extends Location {
 	buildDoordash(){
 		let doorDashIcon;
 
+		// This is dumb - make this a function that returns an icon
 		if (this.doorDashLink){
 			return doorDashIcon = `<a class="doordash-link" href=${ this.doorDashLink }
 			rel="noopener noreferrer"
@@ -366,6 +223,7 @@ class Restaurant extends Location {
 	buildGrubHub(){
 		let grubHubIcon;
 
+		// This is dumb - make this a function that returns an icon
 		if (this.grubHubLink){
 			return grubHubIcon = `<a class="grubhub-link" href=${ this.grubHubLink }
 			rel="noopener noreferrer"
@@ -480,30 +338,21 @@ class Restaurant extends Location {
 		.addTo(markers)
 	}
 
+	// TODO: Properly implement this
 	checkIfOpen(){
-		let currentTime = new Date().getTime();
+		const currentTime = new Date().getTime();
 
 		console.log(currentTime);
 	}
 }
 
+// TODO: Add icon based off of sport
+// TODO: Further refactor to make similar to above changes using createPopupContent() pattern
+// TODO: Not a fan of the current  collegeTeam / sportsTeam split - find a better way to do this
+// generic team class?
 class CollegeTeam extends Location {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		sport,
-		conference,
-		stadiumName,
-		mascot
-	){
-		super(
-			name,
-			position,
-			address,
-			image
-		);
+	constructor(name, position, address, image, sport, conference, stadiumName, mascot){
+		super(name, position, address, image);
 		this.type = 'College Team';
 		this.sport = sport;
 		this.league = 'NCAA';
@@ -514,8 +363,7 @@ class CollegeTeam extends Location {
 
 	buildModal(){
 		L.marker(this.position)
-		.bindPopup(
-		`
+		.bindPopup(`
 			<h2>${ this.stadiumName }</h2>
 			<h4>${ this.name } ${ this.mascot }</h4>
 			<p><b>Sport:</b> ${ this.sport }</p>
@@ -523,33 +371,15 @@ class CollegeTeam extends Location {
 			<p><b>Conference:</b> ${ this.conference }</p>
 			<p><b>Type:</b> ${ this.type }</p>
 			<p><b>Address:</b> ${ this.address }</p>
-		`
-		)
+		`)
 		.openPopup()
 		.addTo(markers)
 	}
 }
 
 class SportsTeam extends CollegeTeam {
-	constructor(
-		name,
-		position,
-		address,
-		image,
-		sport,
-		league,
-		stadiumName,
-		currentStadium,
-		owner
-	){
-		super(
-			name,
-			position,
-			address,
-			image,
-			sport,
-			league,
-			stadiumName
+	constructor(name, position, address, image, sport, league, stadiumName, currentStadium, owner){
+		super(name, position, address, image, sport, league, stadiumName
 		);
 		this.type = 'Sports Team';
 		this.sport = sport;
@@ -561,8 +391,7 @@ class SportsTeam extends CollegeTeam {
 
 	buildModal(){
 		L.marker(this.position)
-		.bindPopup(
-		`
+		.bindPopup(`
 			<h2>${ this.stadiumName }</h2>
 			<h4>${ this.name }<h4>
 			<p><b>Sport:</b> ${ this.sport }</p>
@@ -571,8 +400,7 @@ class SportsTeam extends CollegeTeam {
 			<p><b>Type:</b> ${ this.type }</p>
 			<p><b>Address:</b> ${ this.address }</p>
 			<p><b>Owner:</b> ${ this.owner }</p>
-		`
-		)
+		`)
 		.openPopup()
 		.addTo(markers)
 	}
@@ -583,17 +411,20 @@ class SportsTeam extends CollegeTeam {
 
 // Map Setup
 const myMap = L.map('map');
+// Remove Leaflet Attribution - https://groups.google.com/g/leaflet-js/c/fA6M7fbchOs/m/JTNVhqdc7JcJ
+myMap.attributionControl.setPrefix('');
 
 // Load basemap
 const myBasemap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	maxZoom: 19,
-	attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	attribution: '© <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+	noWrap: true
 });
 
 // Add basemap to map id
 myBasemap.addTo(myMap);
 
-let markers = L.layerGroup().addTo(myMap);
+const markers = L.layerGroup().addTo(myMap);
 
 
 
@@ -603,6 +434,8 @@ setMapLocation();
 // TODO: Make Location selectable
 
 // Hardcode Detroit
+// TODO: Figure out how to make this dynamic
+// perhaps update the titles based off of the city selected, or perhaps the nearest city?
 function setMapLocation(latLong, cityName, mapZoom){
 	myMap.setView([42.33143, -83.04575], mapZoom = 12);
 	setCityName('Detroit');
@@ -624,9 +457,9 @@ function setMapTitle(cityName){
 	document.querySelector('.map-title').innerHTML = `Map of ${ cityName }`;
 }
 
-let allLocations = [];
+const allLocations = [];
 
-let colleges = [];
+const colleges = [];
 
 michiganColleges.map(
 	({
@@ -658,7 +491,7 @@ michiganColleges.map(
 	allLocations.push(colleges[index]);
 });
 
-let locations = [];
+const locations = [];
 
 michiganLocations.map(
 	({
@@ -680,7 +513,7 @@ michiganLocations.map(
 	allLocations.push(locations[index]);
 });
 
-let parks = [];
+const parks = [];
 
 michiganParks.map(
 	({
@@ -702,7 +535,7 @@ michiganParks.map(
 	allLocations.push(parks[index]);
 });
 
-let beaches = [];
+const beaches = [];
 
 michiganBeaches.map(
 	({
@@ -726,7 +559,7 @@ michiganBeaches.map(
 	allLocations.push(beaches[index]);
 });
 
-let restaurants = [];
+const restaurants = [];
 
 detroitRestaurants.map(
 	({
@@ -775,7 +608,7 @@ detroitRestaurants.map(
 	allLocations.push(restaurants[index]);
 });
 
-let sportsTeams = [];
+const sportsTeams = [];
 
 detroitSportsTeams.map(
 	({
@@ -805,7 +638,7 @@ detroitSportsTeams.map(
 	allLocations.push(sportsTeams[index]);
 });
 
-let collegeTeams = [];
+const collegeTeams = [];
 
 michiganCollegeTeams.map(
 	({
@@ -833,7 +666,7 @@ michiganCollegeTeams.map(
 	allLocations.push(collegeTeams[index]);
 });
 
-let coffeeShops = [];
+const coffeeShops = [];
 
 detroitCoffee.map(
 	({
@@ -859,14 +692,25 @@ detroitCoffee.map(
 	allLocations.push(coffeeShops[index]);
 });
 
-const filters = document.querySelectorAll('.filter');
+// allow filtering by multiple types
+const filterList = document.querySelector('.filter-list ul');
+
+filterItems.forEach(item => {
+	filterList.innerHTML += `
+		<li class="filter" data-filter="${item.filter}">${item.text}</li>
+	`;
+});
+
+const filters = document.querySelectorAll('.filter-list ul li');
 
 filters.forEach(function(filter){
 	filter.addEventListener('click', setFilter);
 });
 
+// TODO: Refactor same as legend filter now
+// by default 'all' should be active
 function setFilter(){
-	let filteredType = this.getAttribute('data-filter');
+	const filteredType = this.getAttribute('data-filter');
 
 	removeFilteredActive();
 
@@ -874,15 +718,19 @@ function setFilter(){
 
 	markers.clearLayers();
 
-	allLocations.filter(function(item){
-		if (item.type === 'College Team'){
-			item.type = 'Sports Team'
-		}
+	if (filteredType === 'All') {
+		allLocations.forEach(item => item.buildModal());
+	} else {
+		allLocations.filter(function(item){
+			if (item.type === 'College Team'){
+				item.type = 'Sports Team'
+			}
 
-		if (item.type === filteredType){
-			item.buildModal();
-		}
-	});
+			if (item.type === filteredType){
+				item.buildModal();
+			}
+		});
+	}
 }
 
 function removeFilteredActive(){
@@ -892,14 +740,14 @@ function removeFilteredActive(){
 }
 
 // Ensure filter sub nav appears properly
-const actions = document.querySelector('.actions'),
-filterList = document.querySelector('.filter-list');
+const actions = document.querySelector('.actions');
+const filterParent = document.querySelector('.filter-list');
 
 actions.addEventListener('mouseenter', addActive);
 
 function addActive(){
 	setTimeout(function() {
-		filterList.classList.add('active');
+		filterParent.classList.add('active');
 	}, 250);
 }
 
@@ -907,33 +755,8 @@ actions.addEventListener('mouseleave', removeActive);
 
 function removeActive(){
 	setTimeout(function() {
-		filterList.classList.remove('active');
+		filterParent.classList.remove('active');
 	}, 250);
-}
-
-// Legend Filter
-const legendFilter = document.querySelectorAll('.legend p');
-
-legendFilter.forEach(function(filter){
-	filter.addEventListener('click', legendFilterFunct);
-});
-
-function legendFilterFunct(){
-	let filteredType = this.getAttribute('data-filter');
-
-	markers.clearLayers();
-
-	allLocations.filter(function(item){
-		if (item.type === 'College Team'){
-			item.type = 'Sports Team'
-		}
-
-		if (item.type === filteredType){
-			item.buildModal();
-		}
-	});
-
-	toggleLegendActive();
 }
 
 // Legend Logic
@@ -948,6 +771,51 @@ function toggleLegendActive(){
 	legendOpen.classList.toggle('active');
 	legendClose.classList.toggle('active');
 	legend.classList.toggle('active');
+}
+
+// TODO: Add an active class to the legend filter
+filterItems.forEach(item => {
+	legend.innerHTML += `
+		<p data-filter="${item.filter}">
+			<span>
+				<img
+					src="${item.icon}"
+					alt="Click to filter by ${item.alt}"
+					role="button"
+				>
+			</span>
+			<span> - ${item.text}</span>
+		</p>
+	`;
+});
+
+// Legend Filter
+const legendFilter = document.querySelectorAll('.legend p');
+
+legendFilter.forEach(function(filter){
+	filter.addEventListener('click', filterByLegend);
+});
+
+function filterByLegend(){
+	const filteredType = this.getAttribute('data-filter');
+
+	markers.clearLayers();
+
+	if (filteredType === 'All') {
+		allLocations.forEach(item => item.buildModal());
+	} else {
+		allLocations.filter(function(item){
+			if (item.type === 'College Team'){
+				item.type = 'Sports Team'
+			}
+
+			if (item.type === filteredType){
+				item.buildModal();
+			}
+		});
+	}
+
+	toggleLegendActive();
 }
 
 /*
@@ -969,7 +837,7 @@ fetch(externalCities)
 
 // http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array) {
-	var currentIndex = array.length, temporaryValue, randomIndex;
+	let currentIndex = array.length, temporaryValue, randomIndex;
 
 	// While there remain elements to shuffle...
 	while (0 !== currentIndex) {
