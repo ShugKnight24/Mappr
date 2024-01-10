@@ -35,9 +35,9 @@ class Location extends Place {
 	}
 
 	buildModal(){
-		let isDowntown = this.createDowntownMarker();
+		const isDowntown = this.createDowntownMarker();
 		if (!isDowntown) {
-			let iconType = this.type === 'Neighborhood' ? neighborhoodIcon : cityIcon;
+			const iconType = this.type === 'Neighborhood' ? neighborhoodIcon : cityIcon;
 			this.createMarker(iconType, `${this.type} of ${this.name}`);
 		}
 	}
@@ -81,7 +81,7 @@ class CoffeeShop extends Location {
 	}
 
 	buildModal() {
-		let popupContent = this.createPopupContent();
+		const popupContent = this.createPopupContent();
 		this.createMarker(cityIcon, popupContent);
 	}
 }
@@ -100,7 +100,7 @@ class College extends Location {
 
 	createPopupContent() {
 		// TODO: Further refactor to depend on each individual social media link
-		let socialContent = this.socials ? `
+		const socialContent = this.socials ? `
 			<div class="social-links">
 				<a href=${ this.facebook } rel="noopener noreferrer" target="_blank">${ fbIcon }</a>
 				<a href=${ this.twitter } rel="noopener noreferrer" target="_blank">${ twitterIcon }</a>
@@ -118,7 +118,7 @@ class College extends Location {
 	}
 
 	buildModal() {
-		let popupContent = this.createPopupContent();
+		const popupContent = this.createPopupContent();
 		this.createMarker(cityIcon, popupContent);
 	}
 }
@@ -140,7 +140,7 @@ class Park extends Location {
 	}
 
 	buildModal() {
-		let popupContent = `<h2>${ this.name }</h2>`;
+		const popupContent = `<h2>${ this.name }</h2>`;
 		this.createMarker(parkIcon, popupContent);
 	}
 }
@@ -153,7 +153,7 @@ class Beach extends Location {
 	}
 
 	buildModal() {
-		let popupContent = `<h2>${ this.name }</h2>`;
+		const popupContent = `<h2>${ this.name }</h2>`;
 		this.createMarker(beachIcon, popupContent);
 	}
 }
@@ -338,7 +338,7 @@ class Restaurant extends Location {
 
 	// TODO: Properly implement this
 	checkIfOpen(){
-		let currentTime = new Date().getTime();
+		const currentTime = new Date().getTime();
 
 		console.log(currentTime);
 	}
@@ -422,7 +422,7 @@ const myBasemap = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
 // Add basemap to map id
 myBasemap.addTo(myMap);
 
-let markers = L.layerGroup().addTo(myMap);
+const markers = L.layerGroup().addTo(myMap);
 
 
 
@@ -453,9 +453,9 @@ function setMapTitle(cityName){
 	document.querySelector('.map-title').innerHTML = `Map of ${ cityName }`;
 }
 
-let allLocations = [];
+const allLocations = [];
 
-let colleges = [];
+const colleges = [];
 
 michiganColleges.map(
 	({
@@ -487,7 +487,7 @@ michiganColleges.map(
 	allLocations.push(colleges[index]);
 });
 
-let locations = [];
+const locations = [];
 
 michiganLocations.map(
 	({
@@ -509,7 +509,7 @@ michiganLocations.map(
 	allLocations.push(locations[index]);
 });
 
-let parks = [];
+const parks = [];
 
 michiganParks.map(
 	({
@@ -531,7 +531,7 @@ michiganParks.map(
 	allLocations.push(parks[index]);
 });
 
-let beaches = [];
+const beaches = [];
 
 michiganBeaches.map(
 	({
@@ -555,7 +555,7 @@ michiganBeaches.map(
 	allLocations.push(beaches[index]);
 });
 
-let restaurants = [];
+const restaurants = [];
 
 detroitRestaurants.map(
 	({
@@ -604,7 +604,7 @@ detroitRestaurants.map(
 	allLocations.push(restaurants[index]);
 });
 
-let sportsTeams = [];
+const sportsTeams = [];
 
 detroitSportsTeams.map(
 	({
@@ -634,7 +634,7 @@ detroitSportsTeams.map(
 	allLocations.push(sportsTeams[index]);
 });
 
-let collegeTeams = [];
+const collegeTeams = [];
 
 michiganCollegeTeams.map(
 	({
@@ -662,7 +662,7 @@ michiganCollegeTeams.map(
 	allLocations.push(collegeTeams[index]);
 });
 
-let coffeeShops = [];
+const coffeeShops = [];
 
 detroitCoffee.map(
 	({
@@ -695,7 +695,7 @@ filters.forEach(function(filter){
 });
 
 function setFilter(){
-	let filteredType = this.getAttribute('data-filter');
+	const filteredType = this.getAttribute('data-filter');
 
 	removeFilteredActive();
 
@@ -748,7 +748,7 @@ legendFilter.forEach(function(filter){
 });
 
 function legendFilterFunct(){
-	let filteredType = this.getAttribute('data-filter');
+	const filteredType = this.getAttribute('data-filter');
 
 	markers.clearLayers();
 
@@ -815,7 +815,7 @@ fetch(externalCities)
 
 // http://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
 function shuffle(array) {
-	var currentIndex = array.length, temporaryValue, randomIndex;
+	let currentIndex = array.length, temporaryValue, randomIndex;
 
 	// While there remain elements to shuffle...
 	while (0 !== currentIndex) {
