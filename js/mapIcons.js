@@ -14,14 +14,24 @@
 // 	popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
 // });
 
-const neighborhoodIcon = L.icon({
-	iconUrl: 'img/icons/leaf-red.png',
-	shadowUrl: 'img/icons/leaf-shadow.png',
-	iconSize: [38, 95],
-	shadowSize: [50, 64],
-	iconAnchor: [22, 94],
-	shadowAnchor: [4, 62],
-	popupAnchor: [-3, -76]
+const beachIcon = L.icon({
+	iconUrl: 'img/icons/beach_chair_pin.png',
+	shadowUrl: null,
+	iconSize: [50, 55],
+	shadowSize: [0, 0],
+	iconAnchor: [50, 50],
+	shadowAnchor: [0, 0],
+	popupAnchor: [-25, -55]
+});
+
+const coffeeIcon = L.icon({
+	iconUrl: 'img/icons/coffee_cup.png',
+	shadowUrl: null,
+	iconSize: [45, 90],
+	shadowSize: [0, 0],
+	iconAnchor: [50, 50],
+	shadowAnchor: [0, 0],
+	popupAnchor: [-25, -55]
 });
 
 const cityIcon = L.icon({
@@ -34,18 +44,18 @@ const cityIcon = L.icon({
 	popupAnchor: [-3, -76]
 });
 
-const parkIcon = L.icon({
-	iconUrl: 'img/icons/park_pin.png',
-	shadowUrl: null,
-	iconSize: [50, 55],
-	shadowSize: [0, 0],
-	iconAnchor: [50, 50],
-	shadowAnchor: [0, 0],
-	popupAnchor: [-25, -55]
+const neighborhoodIcon = L.icon({
+	iconUrl: 'img/icons/leaf-red.png',
+	shadowUrl: 'img/icons/leaf-shadow.png',
+	iconSize: [38, 95],
+	shadowSize: [50, 64],
+	iconAnchor: [22, 94],
+	shadowAnchor: [4, 62],
+	popupAnchor: [-3, -76]
 });
 
-const beachIcon = L.icon({
-	iconUrl: 'img/icons/beach_chair_pin.png',
+const parkIcon = L.icon({
+	iconUrl: 'img/icons/park_pin.png',
 	shadowUrl: null,
 	iconSize: [50, 55],
 	shadowSize: [0, 0],

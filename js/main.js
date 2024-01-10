@@ -82,7 +82,7 @@ class CoffeeShop extends Location {
 
 	buildModal() {
 		const popupContent = this.createPopupContent();
-		this.createMarker(cityIcon, popupContent);
+		this.createMarker(coffeeIcon, popupContent);
 	}
 }
 
