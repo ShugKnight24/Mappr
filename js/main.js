@@ -210,6 +210,7 @@ class Restaurant extends Location {
 	buildDoordash(){
 		let doorDashIcon;
 
+		// This is dumb - make this a function that returns an icon
 		if (this.doorDashLink){
 			return doorDashIcon = `<a class="doordash-link" href=${ this.doorDashLink }
 			rel="noopener noreferrer"
@@ -222,6 +223,7 @@ class Restaurant extends Location {
 	buildGrubHub(){
 		let grubHubIcon;
 
+		// This is dumb - make this a function that returns an icon
 		if (this.grubHubLink){
 			return grubHubIcon = `<a class="grubhub-link" href=${ this.grubHubLink }
 			rel="noopener noreferrer"
@@ -432,6 +434,8 @@ setMapLocation();
 // TODO: Make Location selectable
 
 // Hardcode Detroit
+// TODO: Figure out how to make this dynamic
+// perhaps update the titles based off of the city selected, or perhaps the nearest city?
 function setMapLocation(latLong, cityName, mapZoom){
 	myMap.setView([42.33143, -83.04575], mapZoom = 12);
 	setCityName('Detroit');
@@ -688,6 +692,7 @@ detroitCoffee.map(
 	allLocations.push(coffeeShops[index]);
 });
 
+// allow filtering by multiple types
 const filterList = document.querySelector('.filter-list ul');
 
 filterItems.forEach(item => {
